@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta Data-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEHA Games</title> <!--Page Title-->
+    <style>
+
+        /* Web Page Size */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Text Fonts */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Times New Roman', Times, serif, sans-serif, Helvetica, sans-serif;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Background Color */
+        .all-browsers {
+            margin: 0;
+            padding: 5px;
+            background-color: rgba(240, 206, 144, 0.295);
+        }
+
+        /* Image Alignment */
+        img {
+            height: auto;
+        }
+
+        /* Header Size */
+        .all-browsers > h1, .browser {
+            margin: 10px;
+            padding: 1px;
+        }
+
+        /* Header Size and Color */
+        header {
+            background-color: rgba(229, 201, 147, 0.37);
+            padding: 0.5px;
+            text-align: center;
+            font-size: 25px;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Space between logo and title */
+        header h1 {
+            margin-right: 10px; 
+        }
+
+        /* Adjust size of the logo */
+        header .logo-container img {
+            max-width: 100px; 
+            height: auto;
+        }
+        
+        /* Text Color and Size */
+        .browser {
+            margin-top: 20px;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Table Size, Color, Alignment */
+        table {
+            width: 50%;
+            border: 10px solid gray;
+            border-radius: 10px;
+            margin: 2px auto;
+            text-align: center;
+        }
+        /* Table Def */
+        table th, table td {
+            padding: 10px;
+        }
+
+        /* Button Alignment */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 5px;
+        }
+
+        /* Button Size, Color, Shape */
+        .big-button {
+            background-color: rgb(241, 185, 81);
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        /* Description Table */
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer Size, Color, Alignment */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Alignment */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        /* Logo Size */
+        .logo-container img {
+            max-width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Title and Logo-->
+    <header>
+        <h1>DEHA GAMES</h1>  
+        <div class="logo-container">
+            <img src="logo.png" alt="DEHA GAMES" />
+        </div>
+    </header>
+
+    <main>
+        <!--Menu Buttons-->
+        <article class="all-browsers">
+            <section>
+                <div class="button-container">
+                    <button class="big-button">Job Positions</button>
+                    <button class="big-button">Job Applications</button>
+                    <button class="big-button">Our Mission</button>
+                    <button class="big-button">Meet the Team</button>
+                    <button class="big-button">FAQ's</button>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <!--Home Page Description-->
+                            <article class="browser">
+                                <!--Text Alignment-->
+                                <h2 style="text-align:center;">About Us</h2>
+                                <p style="text-align:center;">Welcome to DEHA Games</p> <!--Description-->
+                                    <p>Crafting Worlds. Forging Legends.</p>
+                                    
+                                    <p>At DEHA Games, we are a small, independent team with a big passion for Souls games. Born from late-night brainstorming sessions, endless cups of coffee, and a shared love for Souls games, our studio is dedicated to building rich, immersive worlds where every boss is stronger than the next and every adventure feels personal.</p>
+                                    
+                                    <p>We believe that great RPGs dont need to be like Elden Ring or Bloodborne massive budgets—they can be just as unique and enjoyable(even if it is 2D). Thats why we focus on creating thoughtful, handcrafted experiences where players can lose themselves in the narrative, tackle bosses so hard it makes you question your intelligence, and explore dynamic, living environments shaped by their actions. Whether its a retro-inspired pixel RPG, a turn-based tactical journey, or a deep lore-driven fantasy epic, we aim to make every project feel like an unforgettable journey.</p>
+                                    
+                                    <p>What sets us apart is our dedication to detail. From intricate lore and meaningful quests to original soundtracks and lovingly animated sprites, we pour our creativity into every corner of our games. We're not chasing trends—we're telling stories we care about and inviting players to be part of them.</p>
+                                    
+                                    <p>We are currently hard at work on expanding our team, and we cant wait to share more with you. In the meantime, check out our Team page and get to know our seniors, or drop us a message—our email is at the bottom of the page.</p>
+                                    
+                                    <p>Thanks for stopping by. The campfires warm, the maps are drawn, and the journey is just beginning.</p>
+                                    
+                                    <p>Lets forge something epic.</p>
+                            </article>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </article>
+    </main>
+
+    <!--Footer Links-->
+    <footer>
+        <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
+            Jira Project Manager
+        </a>
+        <a href="info@dehagames.com.au">Contact Us!</a>
+        <p>&copy; DEHA GAMES</p> 
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
