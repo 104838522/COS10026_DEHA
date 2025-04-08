@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- Filename: apply.html
+Name: Job Application Page
+Description: Form used for applying for a job
+Author: Andrew Williams
+Version: 1.0
+Date created: 08/04/2025
+Last modified: 08/04/2025
+-->
+<html lang="en"></html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Job Application form for DEHA GAMES" />
+    <meta name="keywords" content="DEHA GAMES, Games, Video Games, Game Design, Programming, Software Developer, Software Development" />
+    <meta name="author" content="Andrew Williams"  />
+    <title>Job Application - DEHA GAMES</title>
+    <script type="text/javascript">
+        function populate(job,skills){
+            var s1 = document.getElementById(job);
+            s2.innerHTML = "";
+            if(s1.value == "SD035"){
+                var optionArray = ["option1"];
+            } else if(s1.value == "CLE56"){
+                var optionArray = ["Subcat2","Subcat2.1","Subcat2.2"];
+            } else if(s1.value == "UIX37"){
+                var optionArray = ["Subcat3","Subcat3.1","Subcat3.3"];
+            }
+            for(var option in optionArray){
+                 if (optionArray.hasOwnProperty(option)) {
+                    var label= document.createElement("label");
+                    var description = document.createTextNode(pair);
+                    var checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";    // make the element a checkbox
+                    checkbox.name = "skills[]";      // give it a name we can check on the server side
+                    checkbox.value = pair;         // make its value "pair"
+
+                    label.appendChild(checkbox);   // add the box to the element
+                    label.appendChild(description);// add the description to the element
+
+                    document.getElementById(skills).appendChild(label);
+                }
+            }
+        }
+    </script>
+    <!-- Link CSS here -->
+</head>
+
+<body>
+    <header>
+        <h1>Job Application Form for DEHA GAMES</h1>
+    </header>
+    <form action="submit.php" method="post">
+        <label for="job" onchange="populate(this.id,'skills')">Job Reference Number:</label>
+        <select id="job">
+            <option value="SD035">DS035 - Software Developer</option>
+            <option value="CLE56">CLE56 - Cloud Engineer</option>
+            <option value="UIX37">UIX37 - UI/UX Designer</option>
+        </select>
+        <br><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+"
+            title="Max 20 characters" maxlength="20" required>
+        <br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+"
+            title="Max 20 characters" maxlength="20" required>
+        <br><br>
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+        <br><br>
+        <fieldset>
+            <legend>Gender:</legend>
+            <label><input type="radio" name="gender" value="male">Male</label><br>
+            <label><input type="radio" name="gender" value="female">Female</label><br>
+            <label><input type="radio" name="gender" value="other">Other</label><br>
+            <label><input type="radio" name="gender" value="none">Prefer not to say</label><br>
+        </fieldset>
+        <br>
+        <label for="streetAddress">Street Address:</label>
+        <input type="text" id="streetAddress" name="streetAddress"
+            title="Max 40 characters" maxlength="40" required>
+        <br><br>
+        <label for="suburb">Suburb/Town:</label>
+        <input type="text" id="suburb" name="suburb"
+            title="Max 40 characters" maxlength="40" required>
+        <br><br>
+        <label for="state">State/Territory:</label>
+        <select>
+            <option value="VIC">VIC - Victoria</option>
+            <option value="NSW">NSW - New South Wales</option>
+            <option value="QLD">QLD - Queensland</option>
+            <option value="NT">NT - Northern Territory</option>
+            <option value="WA">WA - Western Australia</option>
+            <option value="SA">SA - South Australia</option>
+            <option value="TAS">TAS - Tasmania</option>
+            <option value="ACT">ACT - Australian Capital Territory</option>
+        </select>
+        <br><br>
+        <label for="postcode">Postcode:</label>
+        <input type="number" id="postcode" name="postcode" pattern="{4}"
+            title="Exactly 4 digits" maxlength="4" required>
+        <br><br>
+        <label for="email">Email Address:</label>
+        <input type="text" id="email" name="email"
+            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" maxlength="4" required>
+        <br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" pattern="[0-9 ]{8,12}"
+            title="8-12 digits, with/without spaces" maxlength="4" required>
+        <br><br>
+        <fieldset id="skills">
+            <legend>Skills:</legend>
+        </fieldset>
+    </form>
+</body>
