@@ -10,10 +10,13 @@ Last modified: 08/04/2025
 <html lang="en"></html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Job Application form for DEHA GAMES" />
     <meta name="keywords" content="DEHA GAMES, Games, Video Games, Game Design, Programming, Software Developer, Software Development" />
     <meta name="author" content="Andrew Williams"  />
     <title>Job Application - DEHA GAMES</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+
     <script type="text/javascript">
         function populate(job,skills){
             var s1 = document.getElementById(job);
@@ -42,74 +45,150 @@ Last modified: 08/04/2025
             }
         }
     </script>
-    <!-- Link CSS here -->
 </head>
 
 <body>
+    <!----------------------------------Header--------------------------------->
     <header>
-        <h1>Job Application Form for DEHA GAMES</h1>
+        <!--<img src="images/logo.png" alt="DEHA GAMES" />--><!-- Company Logo-->
+        <h1>DEHA GAMES</h1>
     </header>
-    <form action="submit.php" method="post">
-        <label for="job" onchange="populate(this.id,'skills')">Job Reference Number:</label>
-        <select id="job">
-            <option value="SD035">DS035 - Software Developer</option>
-            <option value="CLE56">CLE56 - Cloud Engineer</option>
-            <option value="UIX37">UIX37 - UI/UX Designer</option>
-        </select>
-        <br><br>
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+"
-            title="Max 20 characters" maxlength="20" required>
-        <br><br>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+"
-            title="Max 20 characters" maxlength="20" required>
-        <br><br>
-        <label for="dateOfBirth">Date of Birth:</label>
-        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-        <br><br>
-        <fieldset>
-            <legend>Gender:</legend>
-            <label><input type="radio" name="gender" value="male">Male</label><br>
-            <label><input type="radio" name="gender" value="female">Female</label><br>
-            <label><input type="radio" name="gender" value="other">Other</label><br>
-            <label><input type="radio" name="gender" value="none">Prefer not to say</label><br>
-        </fieldset>
-        <br>
-        <label for="streetAddress">Street Address:</label>
-        <input type="text" id="streetAddress" name="streetAddress"
-            title="Max 40 characters" maxlength="40" required>
-        <br><br>
-        <label for="suburb">Suburb/Town:</label>
-        <input type="text" id="suburb" name="suburb"
-            title="Max 40 characters" maxlength="40" required>
-        <br><br>
-        <label for="state">State/Territory:</label>
-        <select>
-            <option value="VIC">VIC - Victoria</option>
-            <option value="NSW">NSW - New South Wales</option>
-            <option value="QLD">QLD - Queensland</option>
-            <option value="NT">NT - Northern Territory</option>
-            <option value="WA">WA - Western Australia</option>
-            <option value="SA">SA - South Australia</option>
-            <option value="TAS">TAS - Tasmania</option>
-            <option value="ACT">ACT - Australian Capital Territory</option>
-        </select>
-        <br><br>
-        <label for="postcode">Postcode:</label>
-        <input type="number" id="postcode" name="postcode" pattern="{4}"
-            title="Exactly 4 digits" maxlength="4" required>
-        <br><br>
-        <label for="email">Email Address:</label>
-        <input type="text" id="email" name="email"
-            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" maxlength="4" required>
-        <br><br>
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" pattern="[0-9 ]{8,12}"
-            title="8-12 digits, with/without spaces" maxlength="4" required>
-        <br><br>
-        <fieldset id="skills">
-            <legend>Skills:</legend>
-        </fieldset>
-    </form>
+    <!--Navigation Bar-->
+    <nav>
+        <ul>
+            <li><button><a href="index.html">Home</a></button></li>
+            <li><button><a href="jobs.html">Jobs Positions</a></button></li>
+            <li><button><a href="apply.html">Job Applications</a></button></li>
+            <li><button><a href="about.html">Meet the Team</a></button></li>
+            <li><button><a href="faq.html">FAQ's</a></button></li>
+            <li><button><a href="mailto:info@dehagames.com.au">Contact</a></button></li>
+        </ul>
+    </nav>
+    <hr>
+    <!-----------------------------Main------------------------------------------>
+    <main>
+        <article>
+            <h1>Career Opportunities at DEHA GAMES</h1>
+            <h2>Job Application Form</h2>
+            <h3>Please fill out the form below to apply for a job at DEHA GAMES.</h3>
+            <p>Do not allow the user to submit the form if any required fields are blank or incorrectly filled.</p>
+            <section>
+                <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+                    <!--Job Reference Number (dropdown)-->
+                    <label for="job" onchange="populate(this.id,'skills')">Job Reference Number:</label>
+                    <select id="job" name="job" required>
+                        <option value="">-- Please select a job --</option>
+                        <option value="SD035">DS035 - Software Developer</option>
+                        <option value="CLE56">CLE56 - Cloud Engineer</option>
+                        <option value="UIX37">UIX37 - UI/UX Designer</option>
+                    </select>
+                    <br><br>
+                    <!--First name-->
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+"
+                        title="First name must contain only letters, Max 20 characters" maxlength="20" required>
+                    <br><br>
+                    <!--Last name-->
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+"
+                        title="Last name must contain only letters, Max 20 characters" maxlength="20" required>
+                    <br><br>
+                    <!--Date of Birth-->
+                    <label for="dateOfBirth">Date of Birth:</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    <br><br>
+                    <!--Gender-->
+                    <fieldset>
+                        <legend>Gender:</legend>
+                        <label><input type="radio" name="gender" value="male">Male</label><br>
+                        <label><input type="radio" name="gender" value="female">Female</label><br>
+                        <label><input type="radio" name="gender" value="other">Other</label><br>
+                        <label><input type="radio" name="gender" value="none" required>Prefer not to say</label><br>
+                    </fieldset>
+                    <br><br>
+                    <!--Street Address-->
+                    <label for="streetAddress">Street Address:</label>
+                    <input type="text" id="streetAddress" name="streetAddress"
+                        title="Max 40 characters" maxlength="40" required>
+                    <br><br>
+                    <!--Suburb/Town-->
+                    <label for="suburb">Suburb/Town:</label>
+                    <input type="text" id="suburb" name="suburb"
+                        title="Max 40 characters" maxlength="40" required>
+                    <br><br>
+                    <!--State-->
+                    <label for="state">State/Territory:</label>
+                    <select id="state" name="state" required>
+                        <option value="">-- Please select a state --</option>
+                        <option value="VIC">VIC - Victoria</option>
+                        <option value="NSW">NSW - New South Wales</option>
+                        <option value="QLD">QLD - Queensland</option>
+                        <option value="NT">NT - Northern Territory</option>
+                        <option value="WA">WA - Western Australia</option>
+                        <option value="SA">SA - South Australia</option>
+                        <option value="TAS">TAS - Tasmania</option>
+                        <option value="ACT">ACT - Australian Capital Territory</option>
+                    </select>
+                    <br><br>
+                    <!--Postcode-->
+                    <label for="postcode">Postcode:</label>
+                    <input type="text" id="postcode" name="postcode" pattern="\d{4}" title="Exactly 4 digits" required>
+                    <br><br>
+                    <!--Email address-->
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email"
+                        pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+                        title="Please enter a valid email address format" required>
+                    <br><br>
+                    <!--Phone number-->
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber"
+                        pattern="^(?=(?:\D*\d){8,12}$)[\d ]+$"
+                        title="Enter 8 to 12 digits (spaces allowed)"
+                        required>
+                    <br><br>
+                    <!--Required technical list-->
+                    <fieldset>
+                        <legend>Required Technical Skills:</legend>
+                        <label>
+                          <input type="checkbox" name="skills[]" value="HTML" required> HTML
+                        </label><br>
+                      
+                        <label>
+                          <input type="checkbox" name="skills[]" value="CSS"> CSS
+                        </label><br>
+                      
+                        <label>
+                          <input type="checkbox" name="skills[]" value="JavaScript"> JavaScript
+                        </label><br>
+                      
+                        <label>
+                          <input type="checkbox" name="skills[]" value="Python"> Python
+                        </label><br>
+                      
+                        <label>
+                          <input type="checkbox" name="skills[]" value="SQL"> SQL
+                        </label><br>
+                      </fieldset>
+                    <br><br>
+                    <!--Other skills-->
+                    <label for="otherSkills">Other Skills:</label><br>
+                    <textarea id="otherSkills" name="otherSkills" rows="4" cols="40"
+                            placeholder="Write any other technical skills here"></textarea>
+                    <br><br>
+                    <!--Submit-->
+                    <input type="submit" value="Apply">
+                </form>
+            </section>
+        </article>
+    </main>
+    <!-------------------------------Footer------------------------------------------->
+<footer>
+    <p>
+        <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
+                Jira Project Manager</a>
+                | &copy; DEHA GAMES | 
+        <a href="info@dehagames.com.au">Contact Us!</a>
+    </p> 
+</footer>
 </body>
