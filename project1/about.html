@@ -1,27 +1,51 @@
+<!-- Filename: about.html
+Name: 
+Description: about.html - About Us page for DEHA Developers
+Author: Daehyeon Kim
+Version: 1.0
+Date created: 09/04/2025
+Last modified: 09/04/2025
+-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <!-- ✅ 공통: 외부 CSS 링크 -->
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DEHA games Daehyeon Kim" />
+    <meta name="description" content="about for DEHA games" />
+    <title>About Page</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
 
-  <!-- ✅ 공통 메뉴 -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="apply.html">Apply</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="mailto:info@dehagames.com.au">Email</a></li>
-    </ul>
-  </nav>
+<body>
+  <!--Header-->
+    <!--Title and Logo-->
+    <header>
+      <h1>DEHA GAMES</h1>  
+      <nav>
+          <!--<img src="images/logo.png" alt="DEHA GAMES" />-->
+      </nav>
+      <nav>
+          <ul>
+            <li><button><a href="index.html">Home</a></button></li>
+            <li><button><a href="jobs.html">Jobs Positions</a></button></li>
+            <li><button><a href="apply.html">Job Applications</a></button></li>
+            <li><button><a href="about.html">Meet the Team</a></button></li>
+            <li><button><a href=".html">FAQ's</a></button></li>
+            <li><button><a href="mailto:info@dehagames.com.au">Email</a></button></li>
+          </ul>
+      </nav>
+  </header>
+  <!--Line Seperator-->
+  <hr>
 
   <main>
-    <section><!-- ✅1,2,3  
+<!-- ✅1,2,3  
         Your group name - Class time and day 
         Your tutor’s name
         All your student IDs
         -->
+    <section>
         <h2>Group Information</h2>
         <ul>
           <li>Group Name: <!-- 그룹 이름 -->DEHA Developers</li>
@@ -66,9 +90,8 @@
         </ul>
       </section>
       
-
+<!-- ✅4 멤버별 기여도: 정의 목록 사용 -->
     <section>
-      <!-- ✅4 멤버별 기여도: 정의 목록 사용 -->
       <h2>Member Contributions</h2>
       <dl>
         <dt><!-- Member 1 이름 --></dt>
@@ -84,18 +107,17 @@
         <dd><!-- Member 4의 작업 기여 내용 --></dd>
       </dl>
     </section>
-
+<!-- ✅5 그룹 사진: 300KB 이하 이미지와 캡션 -->
     <section>
-      <!-- ✅5 그룹 사진: 300KB 이하 이미지와 캡션 -->
       <h2>Group Photo</h2>
       <figure>
         <img src="images/group_photo.jpg" alt="Group photo of DEHA Developers" width="300">
         <figcaption>DEHA Developers Team</figcaption>
       </figure>
     </section>
-
+<!-- ✅6 구성원 관심사: 표 형식, 병합 셀 포함 -->
     <section>
-      <!-- ✅6 구성원 관심사: 표 형식, 병합 셀 포함 -->
+      
       <h2>Group Interests</h2>
       <table>
         <caption>Group Member Interests</caption>
@@ -149,7 +171,7 @@
         </tbody>
       </table>
     </section>
-  </main>
+  
 <!--Extra members information-->
 <section>
   <h2>Meet Our Team</h2>
@@ -205,74 +227,18 @@
 
   </div>
 </section>
- <!-- Extra members information-->
- <section>
-    <h2>Meet Our Team</h2>
-    <div class="team-grid">
+</main>
   
-      <!-- 🔶 Member 1 -->
-      <div class="member-card">
-        <ul>
-          <li><img src="images/member1.jpg" alt="Photo of Alice"></li>
-          <li><strong>Name:</strong> Alice</li>
-          <li><strong>Nationality:</strong> South Korean</li>
-          <li><strong>Languages:</strong> Korean, English</li>
-          <li><strong>Skills:</strong> HTML, CSS, Java</li>
-          <li><strong>Course:</strong> COS10026</li>
-          <li><strong>Hometown:</strong> Busan</li>
-          <li><strong>Favourite Food:</strong> Tteokbokki</li>
-        </ul>
-      </div>
-  
-      <!-- 🔶 Member 2 -->
-      <div class="member-card">
-        <ul>
-          <li><img src="images/member2.jpg" alt="Photo of Bob"></li>
-          <li><strong>Name:</strong> Bob</li>
-          <li><strong>Nationality:</strong> Vietnamese</li>
-          <li><strong>Languages:</strong> Vietnamese, English</li>
-          <li><strong>Skills:</strong> JavaScript, React</li>
-          <li><strong>Course:</strong> COS20007</li>
-          <li><strong>Hometown:</strong> Hanoi</li>
-          <li><strong>Favourite Food:</strong> Pho</li>
-        </ul>
-      </div>
-  
-      <!-- 🔶 Member 3 -->
-      <div class="member-card">
-        <ul>
-          <li><img src="images/member3.jpg" alt="Photo of Charlie"></li>
-          <li><strong>Name:</strong> Charlie</li>
-          <li><strong>Nationality:</strong> Chinese</li>
-          <li><strong>Languages:</strong> Mandarin, English</li>
-          <li><strong>Skills:</strong> Python, Django</li>
-          <li><strong>Course:</strong> COS30017</li>
-          <li><strong>Hometown:</strong> Beijing</li>
-          <li><strong>Favourite Food:</strong> Dim Sum</li>
-        </ul>
-      </div>
-  
-      <!-- 🔶 Member 4 -->
-      <div class="member-card">
-        <ul>
-          <li><img src="images/member4.jpg" alt="Photo of Diana"></li>
-          <li><strong>Name:</strong> Diana</li>
-          <li><strong>Nationality:</strong> Malaysian</li>
-          <li><strong>Languages:</strong> Malay, English</li>
-          <li><strong>Skills:</strong> PHP, MySQL</li>
-          <li><strong>Course:</strong> COS10009</li>
-          <li><strong>Hometown:</strong> Kuala Lumpur</li>
-          <li><strong>Favourite Food:</strong> Nasi Lemak</li>
-        </ul>
-      </div>
-  
-    </div>
-  </section>
-  
-  <!-- ✅ Footer: Jira 프로젝트 링크 포함 -->
-  <footer>
-    <p>Project managed on <a href="https://your-jira-link.atlassian.net" target="_blank">Jira</a></p>
-  </footer>
+  <!--Footer Links-->
+    <footer>
+    <p>
+        <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
+                Jira Project Manager</a>
+                | &copy; DEHA GAMES | 
+        <a href="info@dehagames.com.au">Contact Us!</a>
+        
+    </p> 
+    </footer>
 
 </body>
 </html>
