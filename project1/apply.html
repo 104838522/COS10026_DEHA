@@ -16,35 +16,6 @@ Last modified: 08/04/2025
     <meta name="author" content="Andrew Williams"  />
     <title>Job Application - DEHA GAMES</title>
     <link rel="stylesheet" href="styles/styles.css" />
-
-    <script type="text/javascript">
-        function populate(job,skills){
-            var s1 = document.getElementById(job);
-            s2.innerHTML = "";
-            if(s1.value == "SD035"){
-                var optionArray = ["option1"];
-            } else if(s1.value == "CLE56"){
-                var optionArray = ["Subcat2","Subcat2.1","Subcat2.2"];
-            } else if(s1.value == "UIX37"){
-                var optionArray = ["Subcat3","Subcat3.1","Subcat3.3"];
-            }
-            for(var option in optionArray){
-                 if (optionArray.hasOwnProperty(option)) {
-                    var label= document.createElement("label");
-                    var description = document.createTextNode(pair);
-                    var checkbox = document.createElement("input");
-                    checkbox.type = "checkbox";    // make the element a checkbox
-                    checkbox.name = "skills[]";      // give it a name we can check on the server side
-                    checkbox.value = pair;         // make its value "pair"
-
-                    label.appendChild(checkbox);   // add the box to the element
-                    label.appendChild(description);// add the description to the element
-
-                    document.getElementById(skills).appendChild(label);
-                }
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -73,12 +44,12 @@ Last modified: 08/04/2025
             <h3>Please fill out the form below to apply for a job at DEHA GAMES.</h3>
             <p>Do not allow the user to submit the form if any required fields are blank or incorrectly filled.</p>
             <section>
-                <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+                <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" >
                     <!--Job Reference Number (dropdown)-->
-                    <label for="job" onchange="populate(this.id,'skills')">Job Reference Number:</label>
+                    <label for="job">Job Reference Number:</label>
                     <select id="job" name="job" required>
                         <option value="">-- Please select a job --</option>
-                        <option value="SD035">DS035 - Software Developer</option>
+                        <option value="SD035">SD035 - Software Developer</option>
                         <option value="CLE56">CLE56 - Cloud Engineer</option>
                         <option value="UIX37">UIX37 - UI/UX Designer</option>
                     </select>
@@ -102,7 +73,9 @@ Last modified: 08/04/2025
                         <legend>Gender:</legend>
                         <label><input type="radio" name="gender" value="male">Male</label><br>
                         <label><input type="radio" name="gender" value="female">Female</label><br>
-                        <label><input type="radio" name="gender" value="other">Other</label><br>
+                        <label><input type="radio" name="gender" value="other">Other &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input type="text" name="otherGender" name="lastName" pattern="[a-zA-Z]+"
+                            title="Must contain only letters, Max 20 characters" maxlength="20"></label><br>
                         <label><input type="radio" name="gender" value="none" required>Prefer not to say</label><br>
                     </fieldset>
                     <br><br>
@@ -148,7 +121,7 @@ Last modified: 08/04/2025
                         required>
                     <br><br>
                     <!--Required technical list-->
-                    <fieldset>
+                    <fieldset id="skills">
                         <legend>Required Technical Skills:</legend>
                         <label>
                           <input type="checkbox" name="skills[]" value="HTML" required> HTML
