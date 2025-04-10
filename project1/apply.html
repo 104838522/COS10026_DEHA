@@ -42,7 +42,7 @@ Last modified: 10/04/2025
     </header>
     <!-----------------------------Main------------------------------------------>
     <main>
-        <article>
+        <article id="apply_article">
             <h1>Career Opportunities at DEHA GAMES</h1>
             <h2>Job Application Form</h2>
             <h3>Please fill out the form below to apply for a job at DEHA GAMES.</h3>
@@ -58,44 +58,55 @@ Last modified: 10/04/2025
                         <option value="CLE56">CLE56 - Cloud Engineer</option>
                         <option value="UIX37">UIX37 - UI/UX Designer</option>
                     </select>
-                    <br><br>
+                    
                     <!--First name-->
                     <label for="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+"
                         title="First name must contain only letters, Max 20 characters" maxlength="20" required>
-                    <br><br>
+                    
                     <!--Last name-->
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+"
                         title="Last name must contain only letters, Max 20 characters" maxlength="20" required>
-                    <br><br>
+                    
                     <!--Date of Birth-->
                     <label for="dateOfBirth">Date of Birth:</label>
                     <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-                    <br><br>
+                    
                     <!--Gender-->
                     <fieldset>
                         <legend>Gender:</legend>
-                        <!--The gender radio links the checkboxes exclusively.
-                        The otherGender input is a non-required text input for if other gender is selected.-->
-                        <label><input type="radio" name="gender" value="male">Male</label><br>
-                        <label><input type="radio" name="gender" value="female">Female</label><br>
-                        <label><input type="radio" name="gender" value="other">Other &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <label><input type="text" name="otherGender" name="lastName" pattern="[a-zA-Z]+"
-                            title="Must contain only letters, Max 20 characters" maxlength="20"></label><br>
-                        <label><input type="radio" name="gender" value="none" required>Prefer not to say</label><br>
-                    </fieldset>
-                    <br><br>
+                      
+                        <label for="male">
+                        <input type="radio" id="male" name="gender" value="male">Male</label>
+                      
+                        <label for="female">
+                        <input type="radio" id="female" name="gender" value="female">Female</label>
+                      
+                        <label for="other">
+                        <input type="radio" id="other" name="gender" value="other">Other</label>
+                      
+                        <label for="none">
+                        <input type="radio" id="none" name="gender" value="none" required>Prefer not to say</label>
+                        <br>
+                        <!-- Other gender 설명 입력칸 -->
+                        <label for="otherGender">If other, specify:</label>
+                        <input type="text" id="otherGender" name="otherGender"
+                               pattern="[a-zA-Z]+" maxlength="20"
+                               title="Must contain only letters, Max 20 characters">
+                      </fieldset>
+                      
+                    
                     <!--Street Address-->
                     <label for="streetAddress">Street Address:</label>
                     <input type="text" id="streetAddress" name="streetAddress"
                         title="Max 40 characters" maxlength="40" required>
-                    <br><br>
+                    
                     <!--Suburb/Town-->
                     <label for="suburb">Suburb/Town:</label>
                     <input type="text" id="suburb" name="suburb"
                         title="Max 40 characters" maxlength="40" required>
-                    <br><br>
+                    
                     <!--State-->
                     <label for="state">State/Territory:</label>
                     <select id="state" name="state" required>
@@ -110,55 +121,53 @@ Last modified: 10/04/2025
                         <option value="TAS">TAS - Tasmania</option>
                         <option value="ACT">ACT - Australian Capital Territory</option>
                     </select>
-                    <br><br>
                     <!--Postcode-->
                     <label for="postcode">Postcode:</label>
                     <input type="text" id="postcode" name="postcode" pattern="\d{4}" title="Exactly 4 digits" required>
-                    <br><br>
+                    
                     <!--Email address-->
                     <label for="email">Email Address:</label>
                     <input type="email" id="email" name="email"
                         pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
                         title="Please enter a valid email address format" required>
-                    <br><br>
+                    
                     <!--Phone number-->
                     <label for="phoneNumber">Phone Number:</label>
                     <input type="text" id="phoneNumber" name="phoneNumber"
                         pattern="^(?=(?:\D*\d){8,12}$)[\d ]+$"
                         title="Enter 8 to 12 digits (spaces allowed)"
                         required>
-                    <br><br>
+                    
                     <!--Required technical list-->
                     <fieldset id="skills">
                         <legend>Required Technical Skills:</legend>
                         <label>
                           <input type="checkbox" name="skills[]" value="HTML" required> HTML
-                        </label><br>
+                        </label>
                       
                         <label>
                           <input type="checkbox" name="skills[]" value="CSS"> CSS
-                        </label><br>
+                        </label>
                       
                         <label>
                           <input type="checkbox" name="skills[]" value="JavaScript"> JavaScript
-                        </label><br>
+                        </label>
                       
                         <label>
                           <input type="checkbox" name="skills[]" value="Python"> Python
-                        </label><br>
+                        </label>
                       
                         <label>
                           <input type="checkbox" name="skills[]" value="SQL"> SQL
-                        </label><br>
+                        </label>
                       </fieldset>
-                    <br><br>
                     <!--Other skills-->
-                    <label for="otherSkills">Other Skills:</label><br>
+                    <label for="otherSkills">Other Skills:</label>
                     <textarea id="otherSkills" name="otherSkills" rows="4" cols="40"
                             placeholder="Write any other technical skills here"></textarea>
-                    <br><br>
+                    
                     <!--Submit-->
-                    <input type="submit" value="Apply">
+                    <input class="detail_box" type="submit" value="Apply">
                 </form>
             </section>
         </article>

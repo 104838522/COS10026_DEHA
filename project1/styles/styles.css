@@ -184,7 +184,7 @@ footer {
     border-bottom-left-radius: 2em;
 
 }
-#index_article h1
+#index_article h1, #apply_article h2
 {
     font: bold 2.5em 'Courier New', Courier, monospace;
     text-shadow: 0.3rem 0.3rem 2rem hwb(155 7% 51%);
@@ -259,7 +259,7 @@ aside p
   text-align: center;
 }
 
-#jobs_main h1, #jobs_main h2 ,#jobs_main h3 {
+#jobs_main h1, #jobs_main h2 ,#jobs_main h3,#apply_article h2 {
   font-weight: bold;
   text-shadow: 0.3rem 0.3rem 2rem hwb(155 7% 51%);
 } 
@@ -283,9 +283,12 @@ aside p
   color:hwb(155 7% 51%);
   transform: scale(1.05);
   box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  cursor: pointer;
 }
 #jobs_main h1::before, #jobs_main h1::after,
-.job_details_main h2::before, .job_details_main h2::after{
+.job_details_main h2::before, .job_details_main h2::after,
+#apply_article h2::before, #apply_article h2::after,
+#index_article h1::before, #index_article h1::after {
   content: "⚔️";
 }
 .detail_box::before {
@@ -359,6 +362,76 @@ aside p
 
 
 /*---------------apply.html------------------*/
-/*-----about.html-----*/
+/* 전체 폼 레이아웃: flex 사용 */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding : 1rem;
+  border:#8a6d1f double 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 3);
+  background-image: url('images/mainbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+/* 호버 시 폼 약간 튀어나오게 */
+form:hover {
+  transform: scale(1.025);
+}
+#apply_article h1,
+#apply_article h2,
+#apply_article h3
+,#apply_article p {
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px #d4af37;
+}
+
+/* 라벨: 입력 필드와 정렬되도록 설정 */
+label {
+  padding: 0 0.5rem;
+  margin: 0.5rem 0 0.5rem;
+  font-weight: bold;
+}
+
+/* 입력 요소: 너비와 기본 정렬 */
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  background-color: rgb(138, 109, 31, 0.2);
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+/* fieldset, legend: 구조적 구분 */
+fieldset {
+  border: 4px dotted #8a6d1f;
+  padding: 1rem;
+}
+fieldset input{
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+legend {
+  padding: 0 0.5rem;
+}
+
+textarea::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+/*---------------about.html------------------*/
 
   
