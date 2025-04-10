@@ -1,12 +1,15 @@
-<!DOCTYPE html>
 <!-- Filename: apply.html
 Name: Job Application Page
 Description: Form used for applying for a job
 Author: Andrew Williams
-Version: 1.0
+Contributors: Andrew Williams, Daehyeon Kim
+Version: 1.2
 Date created: 08/04/2025
-Last modified: 08/04/2025
+Last modified: 10/04/2025
 -->
+
+<!DOCTYPE html>
+
 <html lang="en"></html>
 <head>
     <meta charset="utf-8" />
@@ -15,6 +18,7 @@ Last modified: 08/04/2025
     <meta name="keywords" content="DEHA GAMES, Games, Video Games, Game Design, Programming, Software Developer, Software Development" />
     <meta name="author" content="Andrew Williams"  />
     <title>Job Application - DEHA GAMES</title>
+    <!--Standard CSS stylesheet for all pages.-->
     <link rel="stylesheet" href="styles/styles.css" />
 </head>
 
@@ -26,6 +30,7 @@ Last modified: 08/04/2025
     <!--Navigation Bar-->
     <nav>
         <ul>
+            <!--This is standardised for all pages.-->
             <li><button><a href="index.html">Home</a></button></li>
             <li><button><a href="jobs.html">Jobs Positions</a></button></li>
             <li><button><a href="apply.html">Job Applications</a></button></li>
@@ -48,6 +53,7 @@ Last modified: 08/04/2025
                     <!--Job Reference Number (dropdown)-->
                     <label for="job">Job Reference Number:</label>
                     <select id="job" name="job" required>
+                        <!--Blank field used to assure that an input is entered.-->
                         <option value="">-- Please select a job --</option>
                         <option value="SD035">SD035 - Software Developer</option>
                         <option value="CLE56">CLE56 - Cloud Engineer</option>
@@ -71,6 +77,8 @@ Last modified: 08/04/2025
                     <!--Gender-->
                     <fieldset>
                         <legend>Gender:</legend>
+                        <!--The gender radio links the checkboxes exclusively.
+                        The otherGender input is a non-required text input for if other gender is selected.-->
                         <label><input type="radio" name="gender" value="male">Male</label><br>
                         <label><input type="radio" name="gender" value="female">Female</label><br>
                         <label><input type="radio" name="gender" value="other">Other &nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -92,6 +100,7 @@ Last modified: 08/04/2025
                     <!--State-->
                     <label for="state">State/Territory:</label>
                     <select id="state" name="state" required>
+                        <!--Blank field used to assure that an input is entered.-->
                         <option value="">-- Please select a state --</option>
                         <option value="VIC">VIC - Victoria</option>
                         <option value="NSW">NSW - New South Wales</option>
@@ -158,6 +167,7 @@ Last modified: 08/04/2025
     <!-------------------------------Footer------------------------------------------->
 <footer>
     <p>
+        <!--Links to the jira page, a fake copyright, and a fake email-->
         <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
                 Jira Project Manager</a>
                 | &copy; DEHA GAMES | 
