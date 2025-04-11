@@ -73,7 +73,7 @@ header {
     gap: 1rem ;
     flex-wrap: wrap;
   }
-  nav li button {
+  nav li  {
     display: inline-block;
     background-color: #F3B746;
     color: black;
@@ -86,17 +86,17 @@ header {
     transition: all 0.3s ease;
     font-family: 'Courier New', Courier, monospace;
   }
-  nav li button a {
+  nav li  a {
     text-decoration: none;
     color: black; 
     font-size: 1rem;
   }
-  nav li button:hover {
+  nav li:hover {
     background-color: #F3B746; 
     transform: scale(1.05);
     box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
   }
-  nav li button:hover a {
+  nav li:hover a {
     color: hwb(155 7% 51%);
   }
 /*main*/
