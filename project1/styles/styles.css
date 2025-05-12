@@ -344,12 +344,9 @@ form {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.5s ease;
 }
 
-form:hover {
-  transform: scale(1.025);
-}
+
 #apply_article h1,
 #apply_article h2,
 #apply_article h3
