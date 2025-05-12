@@ -21,11 +21,11 @@
     </a>  
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html">Jobs Positions</a></li>
-            <li><a href="apply.html">Job Applications</a></li>
-            <li><a href="about.html">Meet the Team</a></li>
-            <li><a href="faq.html">FAQ's</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="jobs.php">Jobs Positions</a></li>
+            <li><a href="apply.php">Job Applications</a></li>
+            <li><a href="about.php">Meet the Team</a></li>
+            <li><a href="faq.php">FAQ's</a></li>
             <li><a href="mailto:info@dehagames.com.au">Contact</a></li>
         </ul>
     </nav>
