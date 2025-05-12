@@ -5,39 +5,13 @@ Author: Elana Nguyen
 Contributors: Elana Nguyen, Daehyeon Kim
 Version: 1.1
 Date created: 06/04/2025
-Last modified: 14/04/2025
+Last modified: 12/05/2025
 -->
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Job webpage for DEHA" />
-        <meta name="keywords" content="DEHA GAMES, Job, Career, Cloud Engineer"/>
-        <meta name="author" content="Elana Nguyen" />
-        <title>Job Listings - DEHA GAMES</title>
-        <link rel="stylesheet" href="styles/styles.css" />
-    </head>
-    <body>
-        <!-- Header -->
-        <header>
-            <a href="index.html">
-                <img src="images/logo.png" alt="DEHA GAMES" />
-                <h1>DEHA GAMES</h1>
-            </a> 
-            <!-- Navigation Bar -->
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Jobs Positions</a></li>
-                    <li><a href="apply.html">Job Applications</a></li>
-                    <li><a href="about.html">Meet the Team</a></li>
-                    <li><a href="faq.html">FAQ's</a></li>
-                    <li><a href="mailto:info@dehagames.com.au">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+<?php
+    $page_title = "Cloud Engineer - DEHA GAMES";
+    $meta_author = "Elana Nguyen";
+?>
+<?php include "header.inc"; ?>
         <!-- Main -->
         <main class="job_details_main">
             <!-- Job listing full description -->
@@ -91,14 +65,4 @@ Last modified: 14/04/2025
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer>
-            <p>
-                <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
-                        Jira Project Manager</a>
-                        | &copy; DEHA GAMES | 
-                <a href="info@dehagames.com.au">Contact Us!</a>
-            </p> 
-        </footer>
-    </body>
-</html>
+<?php include "footer.inc"; ?>

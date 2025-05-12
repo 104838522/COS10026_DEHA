@@ -4,7 +4,7 @@ Description: about.html - About Us page for DEHA Developers
 Author: Daehyeon Kim, Elana Nguyen
 Version: 1.0
 Date created: 09/04/2025
-Last modified: 14/04/2025
+Last modified: 12/05/2025
 -->
 
 <?php
