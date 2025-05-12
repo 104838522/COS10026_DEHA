@@ -6,36 +6,14 @@ Version: 1.0
 Date created: 09/04/2025
 Last modified: 14/04/2025
 -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DEHA games - index.html" />
-    <meta name="keywords" content="DEHA GAMES, job, career, software, cloud, UI, UX, developer, engineer"/>
-    <meta name="author" content="Daehyeon Kim" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <title>About Page - DEHA GAMES</title>
-  </head>
 
-  <body>
-      <!-- Header -->
-      <header>
-        <a href="index.html">
-          <img src="images/logo.png" alt="DEHA GAMES" />
-          <h1>DEHA GAMES</h1>
-        </a>  
-        <nav>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="jobs.html">Jobs Positions</a></li>
-              <li><a href="apply.html">Job Applications</a></li>
-              <li><a href="about.html">Meet the Team</a></li>
-              <li><a href="faq.html">FAQ's</a></li>
-              <li><a href="mailto:info@dehagames.com.au">Contact</a></li>
-            </ul>
-        </nav>
-      </header>
+<?php
+  $page_title = "About Page - DEHA GAMES";
+  $meta_author = "Daehyeon Kim";
+?>
+
+<?php include "header.inc"; ?>
+
     <!-- Main -->    
     <main>
       <!-- 1,2,3  
@@ -241,15 +219,7 @@ Last modified: 14/04/2025
         </section>
       </article>
     </main>
-    
+
     <!-- Footer -->
-    <footer>
-      <p>
-          <a href="https://webtech10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNzZkZjFmNWI5NmM1NDQ4ZGE2ZTA3YTlhZGE2MzNhNDciLCJwIjoiaiJ9" target="_blank">
-                  Jira Project Manager</a>
-                  | &copy; DEHA GAMES | 
-          <a href="info@dehagames.com.au">Contact Us!</a>
-      </p> 
-    </footer>
-  </body>
-</html>
+    <?php include "footer.inc"; ?>
+
