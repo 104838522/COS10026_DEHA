@@ -9,6 +9,7 @@ Last modified: 12/05/2025
 -->
 
 <?php
+    $meta_description="Home page for DEHA GAMES. Welcome to our world of gaming!";
     $page_title = "Home Page - DEHA GAMES";
     $meta_author = "Haider Sakhi";
 ?>

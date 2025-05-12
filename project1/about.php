@@ -8,6 +8,7 @@ Last modified: 12/05/2025
 -->
 
 <?php
+  $meta_description="About Us page for DEHA GAMES. Meet our team and learn about our interests and contributions.";
   $page_title = "About Page - DEHA GAMES";
   $meta_author = "Daehyeon Kim";
 ?>

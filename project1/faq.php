@@ -8,8 +8,10 @@ Date created: 08/04/2025
 Last modified: 12/05/2025
 -->
 
-<?php $author = "Haider Sakhi"; 
-      $page_title = "FAQ - DEHA GAMES"; ?>
+<?php
+    $meta_description="FAQ page for DEHA GAMES. Find answers to common questions about our games and company.";
+    $page_title = "FAQ - DEHA GAMES";
+    $meta_author = "Haider Sakhi"; ?>
 <?php include "header.inc"; ?>
         <!-- Main -->
         <main id="faq_main">

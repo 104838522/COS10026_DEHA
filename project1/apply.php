@@ -8,6 +8,7 @@ Date created: 08/04/2025
 Last modified: 12/05/2025
 -->
 <?php
+    $meta_description="Job Application Page for DEHA GAMES. Fill out the form to apply for a job.";
     $page_title = "Job Application - DEHA GAMES";
     $meta_author = "Andrew Williams"; 
 ?>
@@ -113,8 +114,9 @@ Last modified: 12/05/2025
                         <!-- Required technical list -->
                         <fieldset id="skills">
                             <legend>Required Technical Skills:</legend>
+
                             <label>
-                            <input type="checkbox" name="skills[]" value="HTML" required> HTML
+                            <input type="checkbox" name="skills[]" value="HTML" checked> HTML
                             </label>
                         
                             <label>
@@ -144,5 +146,5 @@ Last modified: 12/05/2025
                 </section>
             </article>
         </main>
-        
+
 <?php include "footer.inc"; ?>

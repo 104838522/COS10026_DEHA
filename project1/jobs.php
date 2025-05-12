@@ -9,6 +9,7 @@ Last modified: 12/05/2025
 -->
 
 <?php
+    $meta_description="Current job openings at DEHA GAMES. Explore our job listings and apply today!";
     $page_title = "Job Openings - DEHA GAMES";
     $meta_author = "Elana Nguyen";
 ?>

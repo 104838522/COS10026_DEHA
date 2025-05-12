@@ -9,6 +9,7 @@ Last modified: 12/05/2025
 -->
 
 <?php
+    $meta_description="UI/UX Designer job description page for DEHA GAMES. Explore the job details and apply";
     $page_title = "UI/UX Designer - DEHA GAMES";
     $meta_author = "Elana Nguyen";
 ?>

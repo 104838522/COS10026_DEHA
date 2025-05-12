@@ -8,6 +8,8 @@ Date created: 06/04/2025
 Last modified: 12/05/2025
 -->
 <?php
+    $meta_description="Job Description Page for Cloud Engineer position Reference Number: CLE56.
+    Learn about the job summary, responsibilities, and requirements.";
     $page_title = "Cloud Engineer - DEHA GAMES";
     $meta_author = "Elana Nguyen";
 ?>
