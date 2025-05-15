@@ -14,6 +14,7 @@ Last modified: 12/05/2025
 ?>
 
 <?php include "header.inc"; ?>
+<?php include "nav.inc"; ?>
 
     <!-- Main -->    
     <main>

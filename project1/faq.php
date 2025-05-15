@@ -13,6 +13,7 @@ Last modified: 12/05/2025
     $page_title = "FAQ - DEHA GAMES";
     $meta_author = "Haider Sakhi"; ?>
 <?php include "header.inc"; ?>
+<?php include "nav.inc"; ?>
         <!-- Main -->
         <main id="faq_main">
             <article id="faq_article">

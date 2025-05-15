@@ -14,6 +14,7 @@ Last modified: 12/05/2025
     $meta_author = "Elana Nguyen";
 ?>
 <?php include "header.inc"; ?>
+<?php include "nav.inc"; ?>
         <!-- Main -->
         <main id="jobs_main">
             <h1>Careers at DEHA GAMES</h1>

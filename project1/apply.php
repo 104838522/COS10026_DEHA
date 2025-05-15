@@ -13,7 +13,9 @@ Last modified: 12/05/2025
     $meta_author = "Andrew Williams"; 
 ?>
 <?php include "header.inc"; ?>
+<?php include "nav.inc"; ?>
         <!-- Main -->
+         
         <main>
             <article id="apply_article">
                 <h1>Career Opportunities at DEHA GAMES</h1>
