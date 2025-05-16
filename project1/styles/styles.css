@@ -24,7 +24,7 @@ body {
     color: #3b2a00;
 
     /*background*/
-    background-image: url("images/background.png");
+    background-image: url("images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -513,3 +513,29 @@ dt ,#group_photo figcaption, #group_info strong {
   text-shadow: 0.1rem 0.1rem 0.2rem hwb(155 7% 51%);
 }
 
+/*-------------------form message in signup_manager.php-------------------------*/
+.form-message {
+    font-size: 1.2rem;
+}
+.form-message a{
+  text-decoration: none;
+  display: inline-block;
+  background-color: #F3B746;
+  color: black;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #8a6d1f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+
+.form-message a:hover {
+  background-color: #dca31d;
+  color:hwb(155 7% 51%);
+  transform: scale(1.05);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
