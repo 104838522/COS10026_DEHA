@@ -18,5 +18,6 @@ if (!isset($_SESSION['username'])) {
 <main>
     <h1>Welcome to Manager Dashboard</h1>
     <p>Hello, <?= htmlspecialchars($_SESSION['username']) ?>! You are now logged in.</p>
+    <div class="form-message"><a href="logout.php" class=form-message>Logout</a></div>
 </main>
 <?php include "footer.inc"; ?>
