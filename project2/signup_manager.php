@@ -67,15 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php include "header.inc"; ?>
 <?php include "nav.inc"; ?>
 <main>
-  <?php if (!empty($message)): ?>
-    <!-- Show result message only -->
-    <div class="form-message">
-        <?= $message ?>
-    </div>
-  <?php else: ?>
+  
     <!-- Show the signup form -->
     <h1>Welcome to DEHA GAMES Manager Signup</h1>
     <p>Join us to manage your games and content.</p>
+    <?php if (!empty($message)): ?>
+        <!-- Show result message-->
+        <div class="form-message"><?= $message ?></div>
+    <?php else: ?>
     <form method="POST" action="signup_manager.php">
         <label>Username: <input type="text" name="username" required></label><br><br>
         <label>Password: <input type="password" name="password" required></label><br><br>

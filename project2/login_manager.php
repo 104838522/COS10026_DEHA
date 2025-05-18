@@ -42,7 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!-- HTML Form -->
+<?php
+  $meta_description="Login page for DEHA GAMES manager. Please enter your username and password.";
+  $page_title = "login_manager - DEHA GAMES";
+  $meta_author = "Daehyeon Kim";
+?>
+
 <?php include "header.inc"; ?>
+<?php include "nav.inc"; ?>
 <main>
     <h1>Login to Manager Page</h1>
     <?php if (!empty($message)): ?>
