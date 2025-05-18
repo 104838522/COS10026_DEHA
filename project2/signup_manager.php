@@ -26,34 +26,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST["password"]);
 
     if (!empty($username) && !empty($password)) {
-        // Check if username already exists
-        $check_sql = "SELECT * FROM managers WHERE username = ?";
-        $stmt = mysqli_prepare($conn, $check_sql);
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        if (mysqli_num_rows($result) > 0) {
-            $message = "❗ This username is already taken.<a href='signup_manager.php'> Try agian!</a>";
+        if (strlen($password) < 8 || 
+            !preg_match('/[A-Z]/', $password) || 
+            !preg_match('/[0-9]/', $password)) {
+            $message = "❗ Password must be at least 8 characters and contain at least one uppercase letter and one number.<a href='signup_manager.php'> Try again!</a>";
         } else {
-            $hashed = password_hash($password, PASSWORD_DEFAULT);
+            // Check if username already exists
+            $check_sql = "SELECT * FROM managers WHERE username = ?";
+            $stmt = mysqli_prepare($conn, $check_sql);
+            mysqli_stmt_bind_param($stmt, "s", $username);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
 
-            $insert_sql = "INSERT INTO managers (username, password_hash) VALUES (?, ?)";
-            $stmt = mysqli_prepare($conn, $insert_sql);
-            mysqli_stmt_bind_param($stmt, "ss", $username, $hashed);
-
-            if (mysqli_stmt_execute($stmt)) {
-                $message = "✅ Registration successful! <a href='login_manager.php'>Click here to log in</a>.";
+            if (mysqli_num_rows($result) > 0) {
+                $message = "❗ This username is already taken.<a href='signup_manager.php'> Try again!</a>";
             } else {
-                $message = "❌ An error occurred during registration. <a href='signup_manager.php'> Try agian!</a>";
+                $hashed = password_hash($password, PASSWORD_DEFAULT);
+
+                $insert_sql = "INSERT INTO managers (username, password_hash) VALUES (?, ?)";
+                $stmt = mysqli_prepare($conn, $insert_sql);
+                mysqli_stmt_bind_param($stmt, "ss", $username, $hashed);
+
+                if (mysqli_stmt_execute($stmt)) {
+                    $message = "✅ Registration successful! <a href='login_manager.php'>Click here to log in</a>.";
+                } else {
+                    $message = "❌ An error occurred during registration. <a href='signup_manager.php'> Try again!</a>";
+                }
             }
         }
     } else {
         $message = '❗ Please fill in all fields. <a href="signup_manager.php" class="form-message">Try again!</a>';
-
     }
+
     mysqli_close($conn);
 }
+
 ?>
 
 
@@ -78,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form method="POST" action="signup_manager.php">
         <label>Username: <input type="text" name="username" required></label><br><br>
         <label>Password: <input type="password" name="password" required></label><br><br>
+        <p>Note: Password must be at least 8 characters long and contain at least one uppercase letter and one number.</p>
         <input type="submit" value="Sign Up">
     </form>
   <?php endif; ?>
