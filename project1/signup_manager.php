@@ -1,19 +1,24 @@
-<!-- 
- CREATE TABLE managers (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL
-); -->
-
-
 <?php
 require_once "settings.php";
 
 $message = "";
 
-$conn = mysqli_connect($host, $username, $password, $database);
-if (!$conn) {
-    die("❌ Failed to connect to database: " . mysqli_connect_error());
+$table_check_query = "SHOW TABLES LIKE 'managers'";
+$table_result = mysqli_query($conn, $table_check_query);
+
+
+// Check if the table exists, if not, create it
+if (mysqli_num_rows($table_result) === 0) {
+    $create_table_sql = "
+        CREATE TABLE managers (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(50) NOT NULL UNIQUE,
+            password_hash VARCHAR(255) NOT NULL
+        );
+    ";
+    if (!mysqli_query($conn, $create_table_sql)) {
+        die("Failed to create table: " . mysqli_error($conn));
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
