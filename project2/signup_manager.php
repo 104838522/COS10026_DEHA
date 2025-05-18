@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
     } else {
-        $message = '❗ Please fill in all fields. <a href="signup_manager.php" class="form-message">Try again!</a>';
+        $message = '❗ Please fill in all fields. <a href="signup_manager.php">Try again!</a>';
     }
 
     mysqli_close($conn);
