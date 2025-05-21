@@ -1,7 +1,7 @@
 <!-- Header -->
 
     <header>
-    <a href="index.html">
+    <a href="index.php">
         <img src="images/logo.png" alt="DEHA GAMES" >
         <h1>DEHA GAMES</h1>
     </a>  
