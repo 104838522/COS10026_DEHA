@@ -1,3 +1,12 @@
+<!-- Filename: manage.php
+Name: manager page
+Description: Manager dashboard for DEHA GAMES
+Author: Daehyeon Kim, Andrew Williams
+Contributors: Daehyeon Kim, Andrew Williams
+Version: 1.2
+Date created: 18/05/2025
+Last modified: 21/05/2025
+-->
 <?php
 session_start();
 

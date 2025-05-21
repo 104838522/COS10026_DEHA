@@ -1,3 +1,12 @@
+<!-- Filename: login_manager.php
+Name: login page
+Description: login page for DEHA GAMES manage page
+Author: Daehyeon Kim
+Contributors: Daehyeon Kim
+Version: 1.2
+Date created: 18/05/2025
+Last modified: 19/05/2025
+-->
 <?php
 require_once "settings.php";
 session_start();

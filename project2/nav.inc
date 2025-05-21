@@ -13,6 +13,7 @@
             <li><a href="manage.php">Manage</a></li>
             <li><a href="signup_manager.php">Sign up</a></li>
             <li><a href="about.php">Meet the Team</a></li>
+            <li><a href="enhancements.php">Enhancements</a></li>
             <li><a href="faq.php">FAQ's</a></li>
             <li><a href="mailto:info@dehagames.com.au">Contact</a></li>
         </ul>

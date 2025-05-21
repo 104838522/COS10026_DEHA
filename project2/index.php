@@ -1,4 +1,4 @@
-<!-- Filename: index.html
+<!-- Filename: index.php
 Name: Home Page
 Description: Description and links to other pages
 Author: Haider Sakhi

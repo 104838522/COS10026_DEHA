@@ -1,3 +1,12 @@
+<!-- Filename: signup_manager.php
+Name: signup page
+Description: signup page for DEHA GAMES manage page
+Author: Daehyeon Kim
+Contributors: Daehyeon Kim
+Version: 1.2
+Date created: 18/05/2025
+Last modified: 19/05/2025
+-->
 <?php
 require_once "settings.php";
 
