@@ -97,7 +97,7 @@ Last modified: 12/05/2025
             <dd>Adding validated rocords to the EOI table (process_eoi.php)</dd>
             <dt><!-- Member 3 -->Haider Sakhi</dt>
             <dd>Update about page (about.php)</dd>
-            <dd>Jobs Description<dd>
+            <dd>Jobs Description</dd>
             <dt><!-- Member 4 -->Andrew Williams</dt>
             <dd>HR manager queries (manage.php)</dd>
           </dl>
