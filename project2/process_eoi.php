@@ -8,6 +8,17 @@ Date created: 21/05/2025
 Last modified: 21/05/2025
 -->
 
+<?php
+require_once "settings.php";
+session_start();
+
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("Failed to connect to database: " . mysqli_connect_error());
+}
+
+// Create table if one doesn't exist
 <!--create table query
 
 CREATE TABLE eoi (
@@ -35,3 +46,44 @@ CREATE TABLE eoi (
 );
 
 -->
+
+//validate form data
+//validate job reference
+$job_reference = '';
+if (isset($_POST['job_reference'])) {
+    $job_reference = htmlspecialchars($_POST['job_reference']);
+}
+// add error echo
+
+// validate first name
+$first_name = '';
+if (isset($_POST['first_name'])) {
+    $first_name = htmlspecialchars($_POST['first_name']);
+}
+if (empty($first_name)) {
+    echo "<p>First name is required.<p>";
+} elseif (!preg_match('/^[a-zA-Z]{1,20}$/', $first_name)) {
+    echo "<p>First name must be max 20 alphabetic characters.<p>";
+}
+
+// validate last name
+$last_name = '';
+if (isset($_POST['last_name'])) {
+    $last_name = htmlspecialchars($_POST['last_name']);
+}
+if (empty($last_name)) {
+    echo "<p>Last name is required.<p>";
+} elseif (!preg_match('/^[a-zA-Z]{1,20}$/', $last_name)) {
+    echo "<p>Last name must be max 20 alphabetic characters.<p>";
+}
+
+// validate date of birth
+$date_of_birth = '';
+if (isset($_POST['date_of_birth'])) {
+    $dob = htmlspecialchars($_POST['dob']);
+}
+if (empty($date_of_birth)) {
+    echo "<p>Date of birth is required.<p>";
+} elseif (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $date_of_birth)) {
+    echo "Date of birth must be in dd/mm/yyyy format.<p>";
+}
