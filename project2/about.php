@@ -89,17 +89,17 @@ Last modified: 12/05/2025
           <h2>Member Contributions</h2>
           <dl>
             <dt><!-- Member 1 -->Daehyeon Kim</dt>
-            <dd>A page about group (about.html)</dd>
-            <dd>CSS Requirements</dd>
+            <dd>Use PHP to reuse common elements in your Web site</dd>
+            <dd>Create a file to store your database connection variables "settings.php</dd>
+            <dd>Create an EOI table (expressions of interest)</dd>
+            <dd>Enhancements</dd>
             <dt><!-- Member 2 -->Elana Nguyen</dt>
-            <dd>Position Descriptions page (jobs.html)</dd>
-            <dd>Submission</dd>
+            <dd>Adding validated rocords to the EOI table (process_eoi.php)</dd>
             <dt><!-- Member 3 -->Haider Sakhi</dt>
-            <dd>Home page (index.html)</dd>
-            <dd>Project Management (Jira)<dd>
+            <dd>Update about page (about.php)</dd>
+            <dd>Jobs Description</dd>
             <dt><!-- Member 4 -->Andrew Williams</dt>
-            <dd>Job application page (apply.html)</dd>
-            <dd>Questions to tutor </dd>
+            <dd>HR manager queries (manage.php)</dd>
           </dl>
         </section>
         <!-- 6 Member's interest -->
