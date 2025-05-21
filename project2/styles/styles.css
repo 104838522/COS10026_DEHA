@@ -155,7 +155,8 @@ footer {
 /* Every page's heading */
 #index_article h1, #apply_article h2,#about_article h1,
 #jobs_main h1, #jobs_main h2 ,#jobs_main h3,#apply_article h2,
-#faq_article h1, #faq_article h3, #about_article section h2
+#faq_article h1, #faq_article h3, #about_article section h2,
+#enhancements_main h1, #enhancements_article section h2
 {
     font: bold 1.5em 'Courier New', Courier, monospace;
     text-shadow: 0.3rem 0.3rem 2rem hwb(155 7% 51%);
@@ -258,7 +259,8 @@ aside p
 #apply_article h2::before, #apply_article h2::after,
 #index_article h1::before, #index_article h1::after,
 #about_article h1::before, #about_article h1::after,
-#faq_article h1::before, #faq_article h1::after {
+#faq_article h1::before, #faq_article h1::after,
+#enhancements_main h1::before, #enhancements_main h1::after{
   content: "⚔️";
 }
 .detail_box::before {
@@ -540,3 +542,32 @@ dt ,#group_photo figcaption, #group_info strong {
   cursor: pointer;
 }
 
+
+/*-------------------------enhancements.php--------------------------*/
+#enhancements_main
+{
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+#enhancements_main h1
+{
+  font: bold 1.5rem 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+#enhancements_article section
+{
+  border: 1rem double #a37a3f;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 0.7rem;
+  margin: 0.8rem;
+}
+/*article*/
+#enhancements_article
+{
+  width: 100%;
+}

@@ -21,7 +21,7 @@ Last modified: 12/05/2025
             <!-- Article -->
             <div class="article_aside">
                 <article id="jobs_article">
-                        <h2>Current Job Openings</h2>
+                        <h3>Current Job Openings</h3>
                     <section>
                         <h3>Job lists</h3>
                         <!-- First job listing: Software Developer -->
