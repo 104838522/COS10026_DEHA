@@ -86,7 +86,7 @@ Last modified: 12/05/2025
     
         <!-- 4 Member Contributions -->
         <section class="Other_info">
-          <h2>Member Contributions</h2>
+          <h2>Member Contributions for Project2</h2>
           <dl>
             <dt><!-- Member 1 -->Daehyeon Kim</dt>
             <dd>Use PHP to reuse common elements in your Web site</dd>
