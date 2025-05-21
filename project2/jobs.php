@@ -21,8 +21,9 @@ Last modified: 12/05/2025
             <!-- Article -->
             <div class="article_aside">
                 <article id="jobs_article">
-                    <section>
                         <h2>Current Job Openings</h2>
+                    <section>
+                        <h3>Job lists</h3>
                         <!-- First job listing: Software Developer -->
                         <section>
                             <h3>Software Developer</h3>
@@ -32,7 +33,7 @@ Last modified: 12/05/2025
                             <p><i class="fas fa-briefcase"></i> Salary Range: $100,000 - $140,000</p>
                             <p><i class="far fa-clock"></i> Close date: 23 APRIL, 2025</p>
                             <p>Hiring 1 x Software Developer to design and build innovative gaming software.</p>
-                            <a class="detail_box" href="software-developer-sd035.html" target="_blank">View Full Details</a>
+                            <a class="detail_box" href="software-developer-sd035.php" target="_blank">View Full Details</a>
                         </section>
                     
                         <!-- Second job listing: Cloud Engineer -->
@@ -44,7 +45,7 @@ Last modified: 12/05/2025
                             <p><i class="fas fa-briefcase"></i> Salary Range: $120,000 - $155,000</p>
                             <p><i class="far fa-clock"></i> Close date: 28 APRIL, 2025</p>
                             <p>Looking for 1 x Cloud Engineer to join the team in designing and implementing our cloud infrastructure.</p>
-                            <a class="detail_box" href="cloud-engineer-cle56.html" target="_blank">View Full Details</a>
+                            <a class="detail_box" href="cloud-engineer-cle56.php" target="_blank">View Full Details</a>
                         </section>
 
                         <!-- Third job listing: UI/UX Designer -->
@@ -56,7 +57,7 @@ Last modified: 12/05/2025
                             <p><i class="fas fa-briefcase"></i> Salary Range: $95,000 - $110,000</p>
                             <p><i class="far fa-clock"></i> Close date: 22 APRIL, 2025</p>
                             <p>Seeking 1 x experienced UI/UX Designer to shape the player experience for our games.</p>
-                            <a class="detail_box" href="uiux-designer-uix37.html" target="_blank">View Full Details</a>
+                            <a class="detail_box" href="uiux-designer-uix37.php" target="_blank">View Full Details</a>
                         </section>
                     </section>
                 </article>
@@ -66,7 +67,7 @@ Last modified: 12/05/2025
                         <h3>Why DEHA GAMES?</h3>
                         <p>We're building a team of innovators who thrive on collaborative, creativity, and cutting-edge challenges. Join us to shape the future of gaming!</p>
                     </div>
-                    <img id="levelup" src="images/levelup.png" alt="level-up" />
+                    <img id="levelup" src="images/levelup.png" alt="level-up" >
                 </aside>
             </div>
         </main>

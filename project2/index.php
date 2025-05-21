@@ -18,10 +18,10 @@ Last modified: 12/05/2025
         <!-- Main -->   
         <main>
             <article id="index_article">
+                <h2>DEHA GAMES</h2> <!-- #4 Company name -->    
                 <section>
                 <!-- Home Page Description -->
-                <h1>DEHA GAMES</h1> <!-- #4 Company name -->
-                <p><strong class="index_strong">Welcome to DEHA Games</strong></p> <!-- #2 Description -->
+                <h3><strong class="index_strong">Welcome to DEHA Games</strong></h3> <!-- #2 Description -->
                 <p><strong class="index_strong">Crafting Worlds. Forging Legends.</strong></p>
                 <br>
                 <p>At <strong class="index_strong">DEHA Games</strong>, we are a small, independent team with a big passion for 

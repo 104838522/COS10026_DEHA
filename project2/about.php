@@ -24,7 +24,7 @@ Last modified: 12/05/2025
       All your student IDs
       -->
       <article id="about_article">
-        <h1>About Us</h1>
+        <h2>About Us</h2>
         <p>Welcome to DEHA GAMES! We are a passionate team of developers dedicated to creating immersive gaming experiences. <br>Our mission is to push the boundaries of technology and design to deliver unforgettable adventures for players around the world.</p>
         <section id="group_info">
           <div>

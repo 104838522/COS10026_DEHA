@@ -2,7 +2,7 @@
 
     <header>
     <a href="index.html">
-        <img src="images/logo.png" alt="DEHA GAMES" />
+        <img src="images/logo.png" alt="DEHA GAMES" >
         <h1>DEHA GAMES</h1>
     </a>  
     <nav>

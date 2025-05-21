@@ -64,7 +64,7 @@ Last modified: 12/05/2025
                 </ul>
                 <!-- The infomation provided for job salary, job summary, job responsibilities and job position requirements
                 were sought using reference: https://www.seek.com.au -->
-                <a class="detail_box" href="apply.html">Apply Now</a>
+                <a class="detail_box" href="apply.php">Apply Now</a>
             </section>
         </main>
 

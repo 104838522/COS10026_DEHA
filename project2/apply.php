@@ -18,12 +18,13 @@ Last modified: 12/05/2025
          
         <main>
             <article id="apply_article">
-                <h1>Career Opportunities at DEHA GAMES</h1>
+                <h2>Career Opportunities at DEHA GAMES</h2>
                 <h2>Job Application Form</h2>
                 <h3>Please fill out the form below to apply for a job at DEHA GAMES.</h3>
                 <p>Do not allow the user to submit the form if any required fields are blank or incorrectly filled.</p>
                 <section>
                     <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" >
+                        <h3>Application Details</h3>
                         <!-- Job Reference Number (dropdown) -->
                         <label for="job">Job Reference Number:</label>
                         <select id="job" name="job" required>

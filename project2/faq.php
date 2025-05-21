@@ -17,7 +17,7 @@ Last modified: 12/05/2025
         <!-- Main -->
         <main id="faq_main">
             <article id="faq_article">
-                <h1>Frequently Asked Questions</h1>
+                <h2>Frequently Asked Questions</h2>
                 <p>Welcome to the DEHA GAMES FAQ page! Here, you will find answers to some of the most common questions we receive from our community. If you have any other questions, feel free to reach out to us!</p>
             <!--Questions and Answers-->
             <section>
@@ -54,10 +54,11 @@ Last modified: 12/05/2025
 
             <!-- Concluding Message -->
             <section>
+                <h2>Stay Adventuring DEHA Fam!</h2>
                 <p>If you have any other questions about us or our titles, dont hesitate to drop us your question through our email-we always love going through each and every question.</p>
                 <p>Feedback is also a top pritority for us at DEHA Games-without it, we wouldn't be able to uphold our goal of delivering memorable titles to you guys.</p> 
                 <p>Any form of feedback, good or bad is deeply valued and taken into account for our future titles, so don't hold back!</p>
-                <p>Stay Adventuring DEHA Fam!</p>
+                
             </section>
             </article>
         </main>
