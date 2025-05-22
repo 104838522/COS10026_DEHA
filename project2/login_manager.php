@@ -26,7 +26,7 @@ if (time() < $_SESSION['locked_until']) {
     $remaining = ($_SESSION['locked_until'] - time());
     $message = "❌ Too many failed attempts. Please try again in $remaining second(s). <a href='login_manager.php'>Try again!</a>";
 } 
-// User is not locked out
+// User is not locked out, and the form is submitted
 elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
     //bring in the username and password from the form
     $username = trim($_POST["username"]);
@@ -46,13 +46,13 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (password_verify($password, $row['password_hash'])) {
             $_SESSION['username'] = $username;// Store username in session
             $_SESSION['login_attempts'] = 0;     // Reset on success
-            $_SESSION['locked_until'] = 0;
+            $_SESSION['locked_until'] = 0;      // Reset lockout time
             header("Location: manage.php");
             exit();
         } 
         //A-2 username exists, incorrect password : Failed
         else {
-            $_SESSION['login_attempts']++;
+            $_SESSION['login_attempts']++; // Increment login_attempts
             if ($_SESSION['login_attempts'] >= 3) {
                 $_SESSION['locked_until'] = time() + (3 * 60); // Lock for 3 minutes
                 $message = "❌ Too many failed attempts. Please try again in 3 minutes. <a href='login_manager.php'>Try again!</a>";
