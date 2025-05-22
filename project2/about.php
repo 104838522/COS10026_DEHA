@@ -90,7 +90,7 @@ Last modified: 12/05/2025
           <dl>
             <dt><!-- Member 1 -->Daehyeon Kim</dt>
             <dd>Use PHP to reuse common elements in your Web site</dd>
-            <dd>Create a file to store your database connection variables "settings.php</dd>
+            <dd>Create a file to store your database connection variables "settings.php"</dd>
             <dd>Create an EOI table (expressions of interest)</dd>
             <dd>Enhancements</dd>
             <dt><!-- Member 2 -->Elana Nguyen</dt>
@@ -180,7 +180,7 @@ Last modified: 12/05/2025
               <h3>Daehyeon Kim</h3>
               <p><strong>Nationality:</strong> South Korean</p>
               <p><strong>Languages:</strong> Korean, English</p>
-              <p><strong>Skills(Programming Languages):</strong> HTML, CSS, Java, AWS, C++</p>
+              <p><strong>Skills(Programming Languages):</strong> HTML, CSS, Java, AWS, C++, PHP, MySQL</p>
               <p><strong>Hometown:</strong> Seoul</p>
               <p><strong>Major:</strong> Software Development</p>
             </div>
@@ -191,7 +191,7 @@ Last modified: 12/05/2025
               <h3>Elana Nguyen</h3>
               <p><strong>Nationality:</strong>Australian</p>
               <p><strong>Languages:</strong> English, Vietnamese</p>
-              <p><strong>Skills(Programming Languages):</strong> Ruby, html, css</p>
+              <p><strong>Skills(Programming Languages):</strong> Ruby, HTML, CSS, PHP, MySQL</p>
               <p><strong>Hometown:</strong> Melbourne</p>
               <p><strong>Major:</strong> Software Development</p>
             </div>
@@ -202,8 +202,8 @@ Last modified: 12/05/2025
               <h3>Haider Sakhi</h3>
               <p><strong>Nationality:</strong> Australian, Pakistani</p>
               <p><strong>Languages:</strong> English, Farsi</p>
-              <p><strong>Skills(Programming Languages):</strong> Ruby, html, css</p>
-              <p><strong>Hometown:</strong> Melbourne</p>
+              <p><strong>Skills(Programming Languages):</strong> Ruby, HTML, CSS, PHP, MySQL</p>
+              <p><strong>Hometown:</strong> Quetta</p>
               <p><strong>Major:</strong> Software Development</p>
             </div>
 
@@ -213,7 +213,7 @@ Last modified: 12/05/2025
               <h3>Andrew Williams</h3>
               <p><strong>Nationality:</strong> Australian</p>
               <p><strong>Languages:</strong> English</p>
-              <p><strong>Skills(Programming Languages):</strong> Ruby, html, css</p>
+              <p><strong>Skills(Programming Languages):</strong> Ruby, HTML, CSS, PHP, MySQL</p>
               <p><strong>Hometown:</strong> Melbourne</p>
               <p><strong>Major:</strong> Computer Science and Game Design with an unselected major (but maye software dev?)</p>
             </div>
