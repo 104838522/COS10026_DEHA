@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 ?>
-<!-- HTML Form -->
+
 <?php
   $meta_description="Manager Dashboard Page for DEHA GAMES. View and manage job applications.";
   $page_title = "Manager Dashboard - DEHA GAMES";
@@ -61,7 +61,8 @@ if (!isset($_SESSION['username'])) {
 
             switch ($action_value) {
                 case "view_all":
-                    $sql = "SELECT * FROM eoi";
+                    $sort_field = isset($_POST["sort_field"]) ? $_POST["sort_field"] : "EOInumber";
+                    $sql = "SELECT * FROM eoi ORDER BY $sort_field";
                     $result = mysqli_query($conn, $sql);
                     if ($result) printEOITable($result);
                     break;
@@ -134,8 +135,7 @@ if (!isset($_SESSION['username'])) {
 
         }
         ?>
-
-    <!-- dashboard -->
+    <!-- HTML Form  dashboard -->
     <?php if (!$submitted): ?>
     <h1>Welcome to Manager Dashboard</h1>
     <p>Hello, <?= htmlspecialchars($_SESSION['username']) ?>! You are now logged in.</p>
@@ -144,6 +144,16 @@ if (!isset($_SESSION['username'])) {
     <!-- 1. View All EOIs -->
     <form method="post">
         <h2>📋 View All EOIs</h2>
+        <label for="sort_field">Sort by:</label>
+        <select name="sort_field" id="sort_field">
+            <option value="EOInumber">EOI Number</option>
+            <option value="job_reference">Job Reference</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="status">Status</option>
+        </select>
         <button type="submit" name="action" value="view_all">View All</button>
     </form>
 
