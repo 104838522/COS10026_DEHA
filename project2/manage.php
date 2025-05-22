@@ -68,8 +68,9 @@ if (!isset($_SESSION['username'])) {
                     break;
 
                 case "search_by_job":
+                    $sort_field = isset($_POST["sort_field"]) ? $_POST["sort_field"] : "EOInumber";
                     $job_ref = mysqli_real_escape_string($conn, $_POST["job_ref"]);
-                    $sql = "SELECT * FROM eoi WHERE job_reference = '$job_ref'";
+                    $sql = "SELECT * FROM eoi WHERE job_reference = '$job_ref' ORDER BY $sort_field";
                     $result = mysqli_query($conn, $sql);
                     if ($result && mysqli_num_rows($result) > 0) {
                         printEOITable($result);
@@ -154,14 +155,23 @@ if (!isset($_SESSION['username'])) {
             <option value="phone">Phone</option>
             <option value="status">Status</option>
         </select>
-        <button type="submit" name="action" value="view_all">View All</button>
+        <button class="detail_box" type="submit" name="action" value="view_all">View All</button>
     </form>
 
     <!-- 2. Search EOIs by Job Reference -->
     <form method="post">
         <h2>🔎 Search EOIs by Job Reference</h2>
+        <label for="sort_field">Sort by:</label>
+        <select name="sort_field" id="sort_field">
+            <option value="EOInumber">EOI Number</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="status">Status</option>
+        </select>
         <input type="text" name="job_ref" placeholder="Enter Job Reference (e.g., SD035)" required>
-        <button type="submit" name="action" value="search_by_job">Search</button>
+        <button class="detail_box" type="submit" name="action" value="search_by_job">Search</button>
     </form>
 
     <!-- 3. Search EOIs by Applicant Name -->
@@ -169,14 +179,14 @@ if (!isset($_SESSION['username'])) {
         <h2>🔍 Search EOIs by Applicant Name</h2>
         <input type="text" name="first_name" placeholder="First Name">
         <input type="text" name="last_name" placeholder="Last Name">
-        <button type="submit" name="action" value="search_by_name">Search</button>
+        <button class="detail_box" type="submit" name="action" value="search_by_name">Search</button>
     </form>
 
     <!-- 4. Delete EOIs by Job Reference -->
     <form method="post">
         <h2>🗑 Delete EOIs by Job Reference</h2>
         <input type="text" name="delete_job_ref" placeholder="Enter Job Reference (e.g., SD035)" required>
-        <button type="submit" name="action" value="delete">Delete EOIs</button>
+        <button class="detail_box" type="submit" name="action" value="delete">Delete EOIs</button>
     </form>
 
     <!-- 5. Update EOI Status -->
@@ -189,7 +199,7 @@ if (!isset($_SESSION['username'])) {
             <option value="Current">Current</option>
             <option value="Final">Final</option>
         </select>
-        <button type="submit" name="action" value="update">Update Status</button>
+        <button class="detail_box" type="submit" name="action" value="update">Update Status</button>
     </form>
     <!-- sign out -->
     <div class="form-message"><a href="logout.php">Logout</a></div>
