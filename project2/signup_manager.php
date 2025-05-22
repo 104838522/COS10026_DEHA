@@ -13,7 +13,7 @@ require_once "settings.php";
 $message = "";
 
 $table_check_query = "SHOW TABLES LIKE 'managers'";
-$table_result = mysqli_query($conn, $table_check_query);
+$table_result = mysqli_query($conn, $table_check_query);// 1 row or 0 row
 
 
 // Check if the table exists, if not, create it
@@ -25,16 +25,19 @@ if (mysqli_num_rows($table_result) === 0) {
             password_hash VARCHAR(255) NOT NULL
         );
     ";
+    //Failure to create table
     if (!mysqli_query($conn, $create_table_sql)) {
         die("Failed to create table: " . mysqli_error($conn));
     }
 }
-
+// Check if the form is submitted
+// If the form is submitted, process the data
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
     if (!empty($username) && !empty($password)) {
+
         if (strlen($password) < 8 || 
             !preg_match('/[A-Z]/', $password) || 
             !preg_match('/[0-9]/', $password)) {
@@ -47,23 +50,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
+            //username already exists
             if (mysqli_num_rows($result) > 0) {
                 $message = "❗ This username is already taken.<a href='signup_manager.php'> Try again!</a>";
-            } else {
+            } 
+            //username does not exist
+            else {
                 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
                 $insert_sql = "INSERT INTO managers (username, password_hash) VALUES (?, ?)";
                 $stmt = mysqli_prepare($conn, $insert_sql);
                 mysqli_stmt_bind_param($stmt, "ss", $username, $hashed);
-
+                // Successfully inserted
                 if (mysqli_stmt_execute($stmt)) {
                     $message = "✅ Registration successful! <a href='login_manager.php'>Click here to log in</a>.";
-                } else {
+                }
+                // Failed to insert
+                else {
                     $message = "❌ An error occurred during registration. <a href='signup_manager.php'> Try again!</a>";
                 }
             }
         }
-    } else {
+    } 
+    // If the username or password is empty 
+    else {
         $message = '❗ Please fill in all fields. <a href="signup_manager.php">Try again!</a>';
     }
 
