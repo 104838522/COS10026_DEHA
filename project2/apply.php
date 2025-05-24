@@ -5,7 +5,7 @@ Author: Andrew Williams
 Contributors: Andrew Williams, Daehyeon Kim, Elana Nguyen
 Version: 1.2
 Date created: 08/04/2025
-Last modified: 12/05/2025
+Last modified: 24/05/2025
 -->
 <?php
     $meta_description="Job Application Page for DEHA GAMES. Fill out the form to apply for a job.";
@@ -23,7 +23,7 @@ Last modified: 12/05/2025
                 <h3>Please fill out the form below to apply for a job at DEHA GAMES.</h3>
                 <p>Do not allow the user to submit the form if any required fields are blank or incorrectly filled.</p>
                 <section>
-                    <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" novalidate="novalidate">
+                    <form action="process_eoi.php" method="post" novalidate="novalidate">
                         <h3>Application Details</h3>
                         <!-- Job Reference Number (dropdown) -->
                         <label for="job">Job Reference Number:</label>
@@ -71,7 +71,6 @@ Last modified: 12/05/2025
                                 pattern="[a-zA-Z]+" maxlength="20"
                                 title="Must contain only letters, Max 20 characters">
                         </fieldset>
-                        
                         
                         <!-- Street Address -->
                         <label for="streetAddress">Street Address:</label>
