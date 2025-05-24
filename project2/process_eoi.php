@@ -5,7 +5,7 @@ Author: Elana Nguyen
 Contributors: Elana Nguyen
 Version: 1.2
 Date created: 21/05/2025
-Last modified: 21/05/2025
+Last modified: 22/05/2025
 -->
 
 <?php
@@ -80,10 +80,17 @@ if (empty($last_name)) {
 // validate date of birth
 $date_of_birth = '';
 if (isset($_POST['date_of_birth'])) {
-    $dob = htmlspecialchars($_POST['dob']);
+    $date_of_birth = htmlspecialchars($_POST['date_of_birth']);
 }
 if (empty($date_of_birth)) {
     echo "<p>Date of birth is required.<p>";
 } elseif (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $date_of_birth)) {
     echo "Date of birth must be in dd/mm/yyyy format.<p>";
 }
+
+// validate email address
+$email = test_input($_POST['email']);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo "<p>Input valid email address.<p>";
+}
+
