@@ -571,3 +571,28 @@ dt ,#group_photo figcaption, #group_info strong {
 {
   width: 100%;
 }
+
+/*EOI container*/
+.eoi-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.eoi-container ul {
+    display: inline-block;
+    text-align: left;
+    margin: 20px auto;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.eoi-container a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+.eoi-container a:hover {
+    text-decoration: underline;
+}

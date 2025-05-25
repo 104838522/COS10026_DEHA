@@ -5,7 +5,7 @@ Author: Elana Nguyen
 Contributors: Elana Nguyen
 Version: 1.2
 Date created: 21/05/2025
-Last modified: 25/05/2025
+Last modified: 26/05/2025
 -->
 
 <?php
@@ -60,7 +60,7 @@ function clean_input($data) {
 }
 
 // Initialise error array
-$error = [];
+$errors = [];
 
 // Initialise variables and sanitise user data
 // Job Reference
@@ -78,7 +78,7 @@ if (isset($_POST['firstName'])) {
     $first_name = clean_input($_POST['firstName']);
     if (empty($first_name)) {
         $errors[] = "First name field is required.";
-    } elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) {
+    } elseif (!preg_match("/^[a-zA-Z\s'-]{1,20}$/", $first_name)) {
         $errors[] = "First name exceeds 20 alphabetic characters limit.";
     }
 }
@@ -89,7 +89,7 @@ if (isset($_POST['lastName'])) {
     $last_name = clean_input($_POST['lastName']);
     if (empty($last_name)) {
         $errors[] = "Last name field is required.";
-    } elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) {
+    } elseif (!preg_match("/^[a-zA-Z\s'-]{1,20}$/", $last_name)) {
         $errors[] = "Last name must be up to 20 alphabetic characters.";
     }
 }
@@ -103,13 +103,10 @@ if (isset($_POST['dateOfBirth'])) {
 }
 // Gender
 $gender = '';
-if (!isset($_POST['gender']) || empty($_POST['gender'])) { // Check for unset or empty radio check box
+if (!isset($_POST['gender']) || empty($_POST['gender'])) { // Check for empty radio check box
     $errors[] = "Gender selection field is required.";
 } else {
     $gender = clean_input($_POST['gender']);
-    if (!in_array($gender, ['male', 'female', 'other', 'none'])) { //remove?
-        $errors[] = "Invalid gender selection.";
-    }
 }
 
 // Other Gender
@@ -119,8 +116,8 @@ if ($gender === 'other') {
         $errors[] = "Other gender field is required.";
     } else {
         $other_gender = clean_input($_POST['otherGender']);
-        if (strlen($other_gender) > 20) {
-            $errors[] = "Other gender exceeds 20 characters.";
+        if (!preg_match("/^[a-zA-Z\s'-]{0,20}$/", $other_gender)) {
+            $errors[] = "Other gender field must only contain alphabetic characters.";
         }
     }
 }
@@ -133,6 +130,8 @@ if (isset($_POST['streetAddress'])) {
         $errors[] = "Street address field is required.";
     } elseif (strlen($street_address) > 40) {
         $errors[] = "Street address exceeds 40 characters.";
+    } elseif (!preg_match("/^[a-zA-Z0-9\s\-\/]{1,40}$/", $street_address)) {
+        $errors[] = "Street address can only contain letters, numbers, spaces, hyphens, or forward slashes.";
     }
 }
 
@@ -142,7 +141,7 @@ if (isset($_POST['suburb'])) {
     $suburb = clean_input($_POST['suburb']);
     if (empty($suburb)) {
         $errors[] = "Suburb field is required.";
-    } elseif (strlen($suburb) > 40) {
+    } elseif (!preg_match("/^[a-zA-Z0-9\s]{1,40}$/", $suburb)) {
         $errors[] = "Suburb exceeds 40 characters.";
     }
 }
@@ -164,14 +163,14 @@ if (isset($_POST['postcode'])) {
         $errors[] = "Postcode must be 4 digits.";
     } else {
         $postcode_ranges = [
-            'NSW' => ['2'],
-            'VIC' => ['3'],
-            'QLD' => ['4'],
-            'SA' => ['5'],
-            'WA' => ['6'],
-            'TAS' => ['7'],
-            'ACT' => ['2'],
-            'NT' => ['0']
+            'NSW' => ['2'], // 2000 - 2999
+            'VIC' => ['3'], //3000 - 3999
+            'QLD' => ['4'], //4000 - 4999
+            'SA' => ['5'], //5000 - 5999
+            'WA' => ['6'], //6000 - 6999
+            'TAS' => ['7'], //7000 - 7999
+            'ACT' => ['2'], //2000 - 2999
+            'NT' => ['0'] //0000 - 0999
         ];
         $first_digit = substr($postcode, 0, 1);
         if (!in_array($first_digit, $postcode_ranges[$state])) {
@@ -203,44 +202,33 @@ if (isset($_POST['phoneNumber'])) {
 }
 
 // Skills
-$skill1 = '';
-if (isset($_POST['skill[]'])) {
-    $skill1 = clean_input($_POST['skill[]']);  // need validation
+$selectedSkills = [];
+if (isset($_POST['skills']) && !empty($_POST['skills'])) {
+    foreach ($_POST['skills'] as $skill) {
+        $selectedSkills[] = clean_input($skill);
+    }
+} else {
+    $errors['skills'] = "One technical skill required.";
 }
-
-$skill2 = '';
-if (isset($_POST['skill2'])) {
-    $skill2 = clean_input($_POST['skill2']);
-}
-
-$skill3 = '';
-if (isset($_POST['skill3'])) {
-    $skill3 = clean_input($_POST['skill3']);
-}
-
-$skill4 = '';
-if (isset($_POST['skill4'])) {
-    $skill4 = clean_input($_POST['skill4']);
-}
-
-$skill5 = '';
-if (isset($_POST['skill5'])) {
-    $skill5 = clean_input($_POST['skill5']);
+$skill_values = array_fill(0, 5, NULL); // create array
+for ($i = 0; $i < min(count($selectedSkills), 5); $i++) {
+    $skill_values[$i] = $selectedSkills[$i];
 }
 
 // Other skills
 $other_skills = NULL;
 if (isset($_POST['otherSkills']) && $_POST['otherSkills'] === 'otherSkills') {
-    if (!isset($_POST['otherSkillsText']) || empty(clean_input($_POST['otherSkillsText']))) {
-        $errors[] = "Other skills description is required.";
-    } else {
+    if (isset($_POST['otherSkillsText']) && !empty(clean_input($_POST['otherSkillsText']))) {
         $other_skills = clean_input($_POST['otherSkillsText']);
         if (strlen($other_skills) > 500) {
             $errors[] = "Other skills description exceeds 500 characters.";
-        } elseif (empty($other_skills)) {
-            $errors[] = "Other skills description cannot be empty.";
         }
+    } else {
+        $errors[] = "'Other Skills' checkbox is selected - description required.";
     }
+}
+else if (isset($_POST['otherSkillsText']) && !empty(clean_input($_POST['otherSkillsText']))) { // Validation if 'Other skills' is not checked but textbox contains text
+    $errors[] = "Please check the 'Other Skills' box if you are providing additional skills.";
 }
 
 // Status of application
@@ -249,15 +237,28 @@ if (isset($_POST['status'])) {
     $status = clean_input($_POST['status']);
 }
 
-// Stops execution if there are errors
+// Error output
 if (!empty($errors)) {
-        echo "<p>The following errors were found:</p>";
-        echo "<ul>";
-        foreach ($errors as $error) {
-            echo "<li>$error</li>";
-        }
-        exit;
+    $meta_description="Error Page for Application Page. List of errors in application form.";
+    $page_title = "Incomplete Application Form Page - DEHA GAMES";
+    $meta_author = "Elana Nguyen"; 
+    include "header.inc";
+    include "nav.inc";
+
+    echo "<div class='eoi-container'>";
+    echo "<h1>Oops! Your application is incomplete</h1>";
+    echo "<p>The following issues were found with your application:</p>";
+    echo "<ul>";
+    foreach ($errors as $error) {
+        echo "<li>" . clean_input($error) . "</li>";
     }
+    echo "</ul>";
+    echo "<p>Return to <a href='apply.php'>application form</a> ↩️</p>";
+    echo "</div><br><br>";
+
+    include "footer.inc";
+    exit;
+}
 
 // Prepare query with placeholders
 $stmt = $conn->prepare("INSERT INTO eoi (job_reference, first_name, last_name, date_of_birth, gender, other_gender, street_address, suburb, state, postcode, email, phone, skill1, skill2, skill3, skill4, skill5, other_skills, status) 
@@ -287,11 +288,27 @@ $stmt->bind_param(
     $status
 );
 
-// Send SQL query to database
+// Application success output and sends SQL query to database
 if ($stmt->execute()) {
-    echo "Application submitted successfully.";
+    $eoi_number = $stmt->insert_id; // Get the auto-generated EOInumber
+
+    $meta_description="Application Submitted Page. Displays user EOI number.";
+    $page_title = "Application Successfully Submitted Page - DEHA GAMES";
+    $meta_author = "Elana Nguyen"; 
+    include "header.inc";
+    include "nav.inc";
+
+    echo "<div class='eoi-container'>";
+    echo "<h1>Application successfully submitted!</h1><br>";
+    echo "<p>Your application has been received. Your EOI reference number is: <strong>" . $eoi_number . "</strong></p><br><br>";
+    echo "<p><a href='index.php'>Return to Home page</a></p>";
+    echo "</div><br><br><br><br>";
+
+    include "footer.inc";
 } else {
-    echo "Error: " . $stmt->error;
+    echo "<h1>Application Error</h1>";
+    echo "<p>There was an error processing your application. Please try again later.</p>";
+    echo "<p>Error: " . htmlspecialchars($stmt->error) . "</>"; // Display SQL error for debugging
 }
 
 $stmt->close();
