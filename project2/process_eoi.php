@@ -66,7 +66,10 @@ $error = [];
 // Job Reference
 $job_reference = '';
 if (isset($_POST['job'])) {
-    $job_reference = clean_input($_POST['job']);  // need validation
+    $job_reference = clean_input($_POST['job']);
+    if (!in_array($job_reference, ['SD035', 'CLE56', 'UIX37'])) {
+        $errors[] = "Job reference number field required.";
+    }
 }
 
 // First Name
@@ -74,9 +77,9 @@ $first_name = '';
 if (isset($_POST['firstName'])) {
     $first_name = clean_input($_POST['firstName']);
     if (empty($first_name)) {
-        $errors[] = "First name is required.";
+        $errors[] = "First name field is required.";
     } elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) {
-        $errors[] = "First name must be up to 20 alphabetic characters.";
+        $errors[] = "First name exceeds 20 alphabetic characters limit.";
     }
 }
 
@@ -85,7 +88,7 @@ $last_name = '';
 if (isset($_POST['lastName'])) {
     $last_name = clean_input($_POST['lastName']);
     if (empty($last_name)) {
-        $errors[] = "Last name is required.";
+        $errors[] = "Last name field is required.";
     } elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) {
         $errors[] = "Last name must be up to 20 alphabetic characters.";
     }
@@ -94,19 +97,32 @@ if (isset($_POST['lastName'])) {
 // Date of Birth
 $date_of_birth = '';
 if (isset($_POST['dateOfBirth'])) {
-    $date_of_birth = clean_input($_POST['dateOfBirth']); // need validation
+    $date_of_birth = clean_input($_POST['dateOfBirth']);
+    if (empty($date_of_birth))
+        $errors[] = "Date Of Birth field is required.";
 }
-
 // Gender
 $gender = '';
-if (isset($_POST['gender'])) {
+if (!isset($_POST['gender']) || empty($_POST['gender'])) { // Check for unset or empty radio check box
+    $errors[] = "Gender selection field is required.";
+} else {
     $gender = clean_input($_POST['gender']);
+    if (!in_array($gender, ['male', 'female', 'other', 'none'])) { //remove?
+        $errors[] = "Invalid gender selection.";
+    }
 }
 
 // Other Gender
-$other_gender = '';
-if (isset($_POST['otherGender'])) {
-    $other_gender = clean_input($_POST['otherGender']); // need validation
+$other_gender = NULL;
+if ($gender === 'other') {
+    if (!isset($_POST['otherGender']) || empty($_POST['otherGender'])) {
+        $errors[] = "Other gender field is required.";
+    } else {
+        $other_gender = clean_input($_POST['otherGender']);
+        if (strlen($other_gender) > 20) {
+            $errors[] = "Other gender exceeds 20 characters.";
+        }
+    }
 }
 
 // Street Address
@@ -114,9 +130,9 @@ $street_address = '';
 if (isset($_POST['streetAddress'])) {
     $street_address = clean_input($_POST['streetAddress']);
     if (empty($street_address)) {
-        $errors[] = "Street address is required.";
+        $errors[] = "Street address field is required.";
     } elseif (strlen($street_address) > 40) {
-        $errors[] = "Street address must be up to 40 characters.";
+        $errors[] = "Street address exceeds 40 characters.";
     }
 }
 
@@ -125,22 +141,42 @@ $suburb = '';
 if (isset($_POST['suburb'])) {
     $suburb = clean_input($_POST['suburb']);
     if (empty($suburb)) {
-        $errors[] = "Suburb/town is required.";
+        $errors[] = "Suburb field is required.";
     } elseif (strlen($suburb) > 40) {
-        $errors[] = "Suburb/town must be up to 40 characters.";
+        $errors[] = "Suburb exceeds 40 characters.";
     }
 }
 
-// State
 $state = '';
 if (isset($_POST['state'])) {
-    $state = clean_input($_POST['state']); // need validation
+    $state = clean_input($_POST['state']);
+    if (!in_array($state, ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'])) {
+        $errors[] = "State field required.";
+    }
 }
 
 // Postcode
 $postcode = '';
 if (isset($_POST['postcode'])) {
-    $postcode = clean_input($_POST['postcode']); // need validation
+    $postcode = clean_input($_POST['postcode']);
+    if (!preg_match("/^\d{4}$/", $postcode)) {
+        $errors[] = "Postcode must be 4 digits.";
+    } else {
+        $postcode_ranges = [
+            'NSW' => ['1', '2'],
+            'VIC' => ['3', '8'],
+            'QLD' => ['4', '9'],
+            'SA' => ['5'],
+            'WA' => ['6'],
+            'TAS' => ['7'],
+            'ACT' => ['0'],
+            'NT' => ['0']
+        ];
+        $first_digit = substr($postcode, 0, 1);
+        if (!in_array($first_digit, $postcode_ranges[$state])) {
+            $errors[] = "Postcode does not match selected state.";
+        }
+    }
 }
 
 // Email Address
@@ -148,7 +184,7 @@ $email = '';
 if (isset($_POST['email'])) {
     $email = clean_input($_POST['email']);
     if (empty($email)) {
-        $errors[] = "Email address is required.";
+        $errors[] = "Email address field is required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Invalid email format.";
     }
@@ -157,13 +193,18 @@ if (isset($_POST['email'])) {
 // Phone Number
 $phone = '';
 if (isset($_POST['phoneNumber'])) {
-    $phone = clean_input($_POST['phoneNumber']); // need validation
+    $phone = clean_input($_POST['phoneNumber']);
+    if (empty($phone)) {
+        $errors[] = "Phone number field is required.";
+    } elseif (!preg_match("/^[\d\s]{8,12}$/", $phone)) {
+        $errors[] = "Phone number must be 8 to 12 digits or spaces.";
+    }
 }
 
 // Skills
 $skill1 = '';
-if (isset($_POST['skill1'])) {
-    $skill1 = clean_input($_POST['skill1']);  // need validation
+if (isset($_POST['skill[]'])) {
+    $skill1 = clean_input($_POST['skill[]']);  // need validation
 }
 
 $skill2 = '';
@@ -186,9 +227,13 @@ if (isset($_POST['skill5'])) {
     $skill5 = clean_input($_POST['skill5']);
 }
 
-$other_skills = '';
-if (isset($_POST['otherSkills'])) {
+// Other skills
+$other_skills = NULL; 
+if (isset($_POST['otherSkills']) && trim($_POST['otherSkills']) !== '') { // Check field is not empty
     $other_skills = clean_input($_POST['otherSkills']);
+    if (strlen($other_skills) > 500) {
+        $errors[] = "Other skills description must be up to 500 characters.";
+    }
 }
 
 // Status of application
