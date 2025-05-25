@@ -28,8 +28,25 @@ Last modified: 21/05/2025
                         <section>
                             <h3>Option 1:</h3>
                             <p><br>Description:</p>
+                            <p>To enhance the user experience and allow easier data review, 
+                                we implemented a feature that enables the manager to choose which field 
+                                to use for sorting the order of displayed EOI (Expression of Interest) records.</p>
                             <p><br>Implementation Summary:</p>
-                           
+                            <p>1. Added a sort field dropdown<br>
+                            A dropdown menu was added to the "View All EOIs" and "Search EOIs by Job Reference" sections. 
+                            It allows the manager to choose a field to sort by (e.g., EOI number, first name, email, or status).</p>
+                            <p>2. Captured selected sort valuen<br>
+                            When the form is submitted, the selected sort field is retrieved from the form using the POST method. 
+                            If no value is selected, EOI number is used as the default.
+                            </P>
+                            <p>3. Modified SQL queries to apply sortingn<br>
+                            The selected field is inserted into the SQL query using the ORDER BY clause. 
+                            This returns the EOI records in the desired order.
+                            </p>
+                            <p>4. Displayed the sorted results in a tablen<br>
+                            The sorted EOI data is displayed in an HTML table, helping the manager easily view 
+                            and assess applications based on their chosen sort order.
+                            </p>             
                             
                             <a class="detail_box" href="manage.php">Go to Manage page</a>
                         </section>
