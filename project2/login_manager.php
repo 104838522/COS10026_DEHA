@@ -56,6 +56,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($_SESSION['login_attempts'] >= 3) {
                 $_SESSION['locked_until'] = time() + (3 * 60); // Lock for 3 minutes
                 $message = "❌ Too many failed attempts. Please try again in 3 minutes. <a href='login_manager.php'>Try again!</a>";
+                $_SESSION['login_attempts'] = 0;
             } else {
                 $message = "❌ Incorrect password.";
             }
@@ -67,6 +68,8 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($_SESSION['login_attempts'] >= 3) {
             $_SESSION['locked_until'] = time() + (3 * 60);
             $message = "❌ Too many failed attempts. Please try again in 3 minutes. <a href='login_manager.php'>Try again!</a>";
+            
+            $_SESSION['login_attempts'] = 0;
         } else {
             $message = "❌ Username not found.";
         }

@@ -63,7 +63,7 @@ Last modified: 21/05/2025
                                 &nbsp;&nbsp;&nbsp;&nbsp;- Password meets length/security rules before hashing.
                             </p>
                             <p>3. Successfully registered data is stored in the managers table.</p>
-                            <a class="detail_box" href="signup_manager.php">View Full Details</a>
+                            <a class="detail_box" href="signup_manager.php">Go to Signup page</a>
                         </section>
 
                         <!-- Third option -->
