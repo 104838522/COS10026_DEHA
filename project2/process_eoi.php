@@ -164,13 +164,13 @@ if (isset($_POST['postcode'])) {
         $errors[] = "Postcode must be 4 digits.";
     } else {
         $postcode_ranges = [
-            'NSW' => ['1', '2'],
-            'VIC' => ['3', '8'],
-            'QLD' => ['4', '9'],
+            'NSW' => ['2'],
+            'VIC' => ['3'],
+            'QLD' => ['4'],
             'SA' => ['5'],
             'WA' => ['6'],
             'TAS' => ['7'],
-            'ACT' => ['0'],
+            'ACT' => ['2'],
             'NT' => ['0']
         ];
         $first_digit = substr($postcode, 0, 1);
