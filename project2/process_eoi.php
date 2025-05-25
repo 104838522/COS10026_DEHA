@@ -147,6 +147,7 @@ if (isset($_POST['suburb'])) {
     }
 }
 
+// State
 $state = '';
 if (isset($_POST['state'])) {
     $state = clean_input($_POST['state']);
@@ -228,11 +229,17 @@ if (isset($_POST['skill5'])) {
 }
 
 // Other skills
-$other_skills = NULL; 
-if (isset($_POST['otherSkills']) && trim($_POST['otherSkills']) !== '') { // Check field is not empty
-    $other_skills = clean_input($_POST['otherSkills']);
-    if (strlen($other_skills) > 500) {
-        $errors[] = "Other skills description must be up to 500 characters.";
+$other_skills = NULL;
+if (isset($_POST['otherSkills']) && $_POST['otherSkills'] === 'otherSkills') {
+    if (!isset($_POST['otherSkillsText']) || empty(clean_input($_POST['otherSkillsText']))) {
+        $errors[] = "Other skills description is required.";
+    } else {
+        $other_skills = clean_input($_POST['otherSkillsText']);
+        if (strlen($other_skills) > 500) {
+            $errors[] = "Other skills description exceeds 500 characters.";
+        } elseif (empty($other_skills)) {
+            $errors[] = "Other skills description cannot be empty.";
+        }
     }
 }
 
@@ -253,10 +260,32 @@ if (!empty($errors)) {
     }
 
 // Prepare query with placeholders
-$stmt = $conn->prepare("INSERT INTO eoi (job_reference, first_name, last_name, date_of_birth, gender, street_address, suburb, state, postcode, email, phone) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-// Bind values to placeholders
-$stmt->bind_param("sssssssssss", $job_reference, $first_name, $last_name, $date_of_birth, $gender, $street_address, $suburb, $state, $postcode, $email, $phone);
+$stmt = $conn->prepare("INSERT INTO eoi (job_reference, first_name, last_name, date_of_birth, gender, other_gender, street_address, suburb, state, postcode, email, phone, skill1, skill2, skill3, skill4, skill5, other_skills, status) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+// Bind values to placeholders                        
+$stmt->bind_param(
+    "sssssssssssssssssss",
+    $job_reference,
+    $first_name,
+    $last_name,
+    $date_of_birth,
+    $gender,
+    $other_gender,
+    $street_address,
+    $suburb,
+    $state,
+    $postcode,
+    $email,
+    $phone,
+    $skill_values[0],
+    $skill_values[1],
+    $skill_values[2],
+    $skill_values[3],
+    $skill_values[4],
+    $other_skills,
+    $status
+);
 
 // Send SQL query to database
 if ($stmt->execute()) {

@@ -5,7 +5,7 @@ Author: Andrew Williams
 Contributors: Andrew Williams, Daehyeon Kim, Elana Nguyen
 Version: 1.2
 Date created: 08/04/2025
-Last modified: 24/05/2025
+Last modified: 25/05/2025
 -->
 <?php
     $meta_description="Job Application Page for DEHA GAMES. Fill out the form to apply for a job.";
@@ -138,8 +138,10 @@ Last modified: 24/05/2025
                             </label>
                         </fieldset>
                         <!-- Other skills -->
-                        <label for="otherSkills">Other Skills:</label>
-                        <textarea id="otherSkills" name="otherSkills" rows="4" cols="40"
+                        <label>
+                            <input type="checkbox" name="otherSkills" value="otherSkills">Other Skills:
+                        </label>
+                        <textarea id="otherSkillsText" name="otherSkillsText" rows="4" cols="40"
                                 placeholder="Write any other technical skills here"></textarea>
                         
                         <!-- Submit -->
