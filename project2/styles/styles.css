@@ -571,13 +571,26 @@ dt ,#group_photo figcaption, #group_info strong {
 {
   width: 100%;
 }
-
+/*-------------------------process_eoi.php--------------------------*/
 /*EOI container*/
 .eoi-container {
     text-align: center;
     margin-top: 50px;
     font-family: Arial, sans-serif;
     color: black;
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto;
+    background-color: rgba(199, 155, 85, 0.9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: Black;  
+    padding: 3rem; 
+    border-top-right-radius: 9em;
+    border-bottom-left-radius: 9em;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
 .eoi-container ul {
