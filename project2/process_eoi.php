@@ -68,7 +68,7 @@ $job_reference = '';
 if (isset($_POST['job'])) {
     $job_reference = clean_input($_POST['job']);
     if (!in_array($job_reference, ['SD035', 'CLE56', 'UIX37'])) {
-        $errors[] = "Job reference number field required.";
+        $errors[] = "'Job' field is required.";
     }
 }
 
@@ -77,7 +77,7 @@ $first_name = '';
 if (isset($_POST['firstName'])) {
     $first_name = clean_input($_POST['firstName']);
     if (empty($first_name)) {
-        $errors[] = "First name field is required.";
+        $errors[] = "'First Name' field is required.";
     } elseif (!preg_match("/^[a-zA-Z\s'-]{1,20}$/", $first_name)) {
         $errors[] = "First name exceeds 20 alphabetic characters limit.";
     }
@@ -88,7 +88,7 @@ $last_name = '';
 if (isset($_POST['lastName'])) {
     $last_name = clean_input($_POST['lastName']);
     if (empty($last_name)) {
-        $errors[] = "Last name field is required.";
+        $errors[] = "'Last Name' field is required.";
     } elseif (!preg_match("/^[a-zA-Z\s'-]{1,20}$/", $last_name)) {
         $errors[] = "Last name must be up to 20 alphabetic characters.";
     }
@@ -99,12 +99,12 @@ $date_of_birth = '';
 if (isset($_POST['dateOfBirth'])) {
     $date_of_birth = clean_input($_POST['dateOfBirth']);
     if (empty($date_of_birth))
-        $errors[] = "Date Of Birth field is required.";
+        $errors[] = "'Date Of Birth' field is required.";
 }
 // Gender
 $gender = '';
 if (!isset($_POST['gender']) || empty($_POST['gender'])) { // Check for empty radio check box
-    $errors[] = "Gender selection field is required.";
+    $errors[] = "'Gender' field is required.";
 } else {
     $gender = clean_input($_POST['gender']);
 }
@@ -113,11 +113,11 @@ if (!isset($_POST['gender']) || empty($_POST['gender'])) { // Check for empty ra
 $other_gender = NULL;
 if ($gender === 'other') {
     if (!isset($_POST['otherGender']) || empty($_POST['otherGender'])) {
-        $errors[] = "Other gender field is required.";
+        $errors[] = "'Other Gender' field is required.";
     } else {
         $other_gender = clean_input($_POST['otherGender']);
         if (!preg_match("/^[a-zA-Z\s'-]{0,20}$/", $other_gender)) {
-            $errors[] = "Other gender field must only contain alphabetic characters.";
+            $errors[] = "'Other Gender' field must only contain alphabetic characters.";
         }
     }
 }
@@ -127,10 +127,10 @@ $street_address = '';
 if (isset($_POST['streetAddress'])) {
     $street_address = clean_input($_POST['streetAddress']);
     if (empty($street_address)) {
-        $errors[] = "Street address field is required.";
+        $errors[] = "'Street address' is required.";
     } elseif (strlen($street_address) > 40) {
         $errors[] = "Street address exceeds 40 characters.";
-    } elseif (!preg_match("/^[a-zA-Z0-9\s\-\/]{1,40}$/", $street_address)) {
+    } elseif (!preg_match("/^[a-zA-Z0-9\s\-\/]{1,40}$/", $street_address)) { 
         $errors[] = "Street address can only contain letters, numbers, spaces, hyphens, or forward slashes.";
     }
 }
@@ -140,7 +140,7 @@ $suburb = '';
 if (isset($_POST['suburb'])) {
     $suburb = clean_input($_POST['suburb']);
     if (empty($suburb)) {
-        $errors[] = "Suburb field is required.";
+        $errors[] = "'Suburb' is required.";
     } elseif (!preg_match("/^[a-zA-Z0-9\s]{1,40}$/", $suburb)) {
         $errors[] = "Suburb exceeds 40 characters.";
     }
@@ -151,7 +151,7 @@ $state = '';
 if (isset($_POST['state'])) {
     $state = clean_input($_POST['state']);
     if (!in_array($state, ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'])) {
-        $errors[] = "State field required.";
+        $errors[] = "'State' field is required.";
     }
 }
 
@@ -184,7 +184,7 @@ $email = '';
 if (isset($_POST['email'])) {
     $email = clean_input($_POST['email']);
     if (empty($email)) {
-        $errors[] = "Email address field is required.";
+        $errors[] = "Email address is required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Invalid email format.";
     }
@@ -195,7 +195,7 @@ $phone = '';
 if (isset($_POST['phoneNumber'])) {
     $phone = clean_input($_POST['phoneNumber']);
     if (empty($phone)) {
-        $errors[] = "Phone number field is required.";
+        $errors[] = "Phone number is required.";
     } elseif (!preg_match("/^[\d\s]{8,12}$/", $phone)) {
         $errors[] = "Phone number must be 8 to 12 digits or spaces.";
     }
@@ -208,7 +208,7 @@ if (isset($_POST['skills']) && !empty($_POST['skills'])) {
         $selectedSkills[] = clean_input($skill);
     }
 } else {
-    $errors['skills'] = "One technical skill required.";
+    $errors['skills'] = "One required technical skill must be selected.";
 }
 $skill_values = array_fill(0, 5, NULL); // create array
 for ($i = 0; $i < min(count($selectedSkills), 5); $i++) {
@@ -221,10 +221,10 @@ if (isset($_POST['otherSkills']) && $_POST['otherSkills'] === 'otherSkills') {
     if (isset($_POST['otherSkillsText']) && !empty(clean_input($_POST['otherSkillsText']))) {
         $other_skills = clean_input($_POST['otherSkillsText']);
         if (strlen($other_skills) > 500) {
-            $errors[] = "Other skills description exceeds 500 characters.";
+            $errors[] = "'Other skills' description exceeds 500 characters.";
         }
     } else {
-        $errors[] = "'Other Skills' checkbox is selected - description required.";
+        $errors[] = "'Other Skills' checkbox is selected - description is missing.";
     }
 }
 else if (isset($_POST['otherSkillsText']) && !empty(clean_input($_POST['otherSkillsText']))) { // Validation if 'Other skills' is not checked but textbox contains text
@@ -253,7 +253,7 @@ if (!empty($errors)) {
         echo "<li>" . clean_input($error) . "</li>";
     }
     echo "</ul>";
-    echo "<p>Return to <a href='apply.php'>application form</a> ↩️</p>";
+    echo "<p>Return to back to previous application ↩️ or start new <a href='apply.php'>application form</a></p>";
     echo "</div><br><br>";
 
     include "footer.inc";
@@ -300,7 +300,7 @@ if ($stmt->execute()) {
 
     echo "<div class='eoi-container'>";
     echo "<h1>Application successfully submitted!</h1><br>";
-    echo "<p>Your application has been received. Your EOI reference number is: <strong>" . $eoi_number . "</strong></p><br><br>";
+    echo "<p>Your application has been received. Your application reference number is: <strong>" . $eoi_number . "</strong></p><br><br>";
     echo "<p><a href='index.php'>Return to Home page</a></p>";
     echo "</div><br><br><br><br>";
 
