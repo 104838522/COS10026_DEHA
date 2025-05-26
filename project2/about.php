@@ -89,17 +89,18 @@ Last modified: 12/05/2025
           <h2>Member Contributions for Project2</h2>
           <dl>
             <dt><!-- Member 1 -->Daehyeon Kim</dt>
-            <dd>Use PHP to reuse common elements in your Web site</dd>
-            <dd>Create a file to store your database connection variables "settings.php"</dd>
-            <dd>Create an EOI table (expressions of interest)</dd>
-            <dd>Enhancements</dd>
+            <dd>1. Use PHP to reuse common elements in your Web site</dd>
+            <dd>2. Create a file to store your database connection variables "settings.php"</dd>
+            <dd>3. Create an EOI table (expressions of interest)</dd>
+            <dd>4. Enhancements</dd>
             <dt><!-- Member 2 -->Elana Nguyen</dt>
-            <dd>Adding validated rocords to the EOI table (process_eoi.php)</dd>
+            <dd>1. Adding validated rocords to the EOI table (process_eoi.php)</dd>
+            <dd>2. Prepare final submission</dd>
             <dt><!-- Member 3 -->Haider Sakhi</dt>
-            <dd>Update about page (about.php)</dd>
-            <dd>Jobs Description</dd>
+            <dd>1. Update about page (about.php)</dd>
+            <dd>2 .Jobs Description</dd>
             <dt><!-- Member 4 -->Andrew Williams</dt>
-            <dd>HR manager queries (manage.php)</dd>
+            <dd>1. HR manager queries (manage.php)</dd>
           </dl>
         </section>
         <!-- 6 Member's interest -->

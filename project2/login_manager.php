@@ -58,7 +58,8 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message = "❌ Too many failed attempts. Please try again in 3 minutes. <a href='login_manager.php'>Try again!</a>";
                 $_SESSION['login_attempts'] = 0;
             } else {
-                $message = "❌ Incorrect password.";
+                $remaining_attempts = 3 - $_SESSION['login_attempts'];
+                $message = "❌ Incorrect password.  $remaining_attempts  attempts remaining. Please try again.";
             }
         }
     } 
@@ -71,7 +72,8 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $_SESSION['login_attempts'] = 0;
         } else {
-            $message = "❌ Username not found.";
+            $remaining_attempts = 3 - $_SESSION['login_attempts'];
+            $message = "❌ Username not found.  $remaining_attempts  attempts remaining. Please try again.";
         }
     }
     mysqli_close($conn);

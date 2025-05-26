@@ -7,18 +7,6 @@ Version: 1.1
 Date created: 06/04/2025
 Last modified: 21/05/2025
 -->
-<!--
-CREATE TABLE jobs (
-    job_ref VARCHAR(10) PRIMARY KEY,
-    title VARCHAR(100),
-    type VARCHAR(50),
-    location VARCHAR(100),
-    salary_range VARCHAR(50),
-    close_date DATE,
-    description TEXT,
-    detail_link VARCHAR(100)
-);
--->
 <?php
 $meta_description = "Current job openings at DEHA GAMES. Explore our job listings and apply today!";
 $page_title = "Job Openings - DEHA GAMES";

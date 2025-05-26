@@ -68,9 +68,9 @@ if (!isset($_SESSION['username'])) {
                     break;
 
                 case "search_by_job":
-                    $sort_field = isset($_POST["sort_field"]) ? $_POST["sort_field"] : "EOInumber";
+                    $sort_field_job = isset($_POST["sort_field_job"]) ? $_POST["sort_field_job"] : "EOInumber";
                     $job_ref = mysqli_real_escape_string($conn, $_POST["job_ref"]);
-                    $sql = "SELECT * FROM eoi WHERE job_reference = '$job_ref' ORDER BY $sort_field";
+                    $sql = "SELECT * FROM eoi WHERE job_reference = '$job_ref' ORDER BY $sort_field_job";
                     $result = mysqli_query($conn, $sql);
                     if ($result && mysqli_num_rows($result) > 0) {
                         printEOITable($result);
@@ -161,8 +161,8 @@ if (!isset($_SESSION['username'])) {
     <!-- 2. Search EOIs by Job Reference -->
     <form method="post">
         <h2>🔎 Search EOIs by Job Reference</h2>
-        <label for="sort_field">Sort by:</label>
-        <select name="sort_field" id="sort_field">
+        <label for="sort_field_job">Sort by:</label>
+        <select name="sort_field_job" id="sort_field_job">
             <option value="EOInumber">EOI Number</option>
             <option value="first_name">First Name</option>
             <option value="last_name">Last Name</option>
